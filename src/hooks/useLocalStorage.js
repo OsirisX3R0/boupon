@@ -2,7 +2,9 @@ import { useRef, useState } from "react";
 
 const useLocalStorage = (storageKey) => {
   const key = useRef(storageKey);
-  let storageValue = JSON.parse(localStorage.getItem(key.current));
+  let storageValue = Storage.getItem(key.current)
+    ? JSON.parse(localStorage.getItem(key.current))
+    : null;
   const [value, setValue] = useState(storageValue);
 
   const setStorage = (newValue) => {

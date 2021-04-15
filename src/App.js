@@ -1,9 +1,13 @@
+import Coupons from "./components/Coupons";
+import { CouponProvider } from "./context/CouponContext";
 import { GlobalProvider } from "./context/GlobalContext";
 
 function App() {
   return (
     <GlobalProvider>
-      Edit <code>src/App.js</code> and save to reload.
+      <CouponProvider>
+        <Coupons />
+      </CouponProvider>
     </GlobalProvider>
   );
 }
