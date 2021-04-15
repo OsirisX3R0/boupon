@@ -8,8 +8,8 @@ const Coupons = () => {
   const couponList =
     coupons &&
     coupons.length &&
-    coupons.map((coupon) => (
-      <Coupon>
+    coupons.map((coupon, i) => (
+      <Coupon key={i}>
         <h3>{coupon.title}</h3>
         <p>{coupon.text}</p>
       </Coupon>

@@ -10,7 +10,7 @@ const GlobalSyle = createGlobalStyle`
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => (
-  <GlobalContext.Provider>
+  <GlobalContext.Provider value={{}}>
     <GlobalSyle />
     {children}
   </GlobalContext.Provider>
