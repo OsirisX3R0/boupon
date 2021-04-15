@@ -1,19 +1,21 @@
 import { useContext } from "react";
 import { CouponContext } from "../context/CouponContext";
+import { Coupon, CouponContainer } from "../styles";
 
 const Coupons = () => {
   const { coupons } = useContext(CouponContext);
 
-  return (
-    <div>
-      {coupons.map((coupon) => (
-        <div>
-          <h3>{coupon.title}</h3>
-          <p>{coupon.text}</p>
-        </div>
-      ))}
-    </div>
-  );
+  const couponList =
+    coupons &&
+    coupons.length &&
+    coupons.map((coupon) => (
+      <Coupon>
+        <h3>{coupon.title}</h3>
+        <p>{coupon.text}</p>
+      </Coupon>
+    ));
+
+  return <CouponContainer>{couponList}</CouponContainer>;
 };
 
 export default Coupons;
