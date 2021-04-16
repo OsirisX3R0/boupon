@@ -6,26 +6,38 @@ import {
   CouponDesc,
   CouponHead,
   CouponText,
+  OldHead,
   Redeem,
 } from "../styles";
 
-const Coupons = () => {
-  const { coupons } = useContext(CouponContext);
+const Coupons = ({ old }) => {
+  const { coupons, redeem } = useContext(CouponContext);
+
+  const oldHead = old && <OldHead>Old Coupons</OldHead>;
 
   const couponList =
     coupons &&
     coupons.length &&
-    coupons.map((coupon, i) => (
-      <Coupon key={i}>
-        <CouponText>
-          <CouponHead>{coupon.title}</CouponHead>
-          <CouponDesc>{coupon.text}</CouponDesc>
-        </CouponText>
-        <Redeem>&#128504; Redeem</Redeem>
-      </Coupon>
-    ));
+    coupons
+      .filter((c) => (old ? c.redeemed : !c.redeemed))
+      .map((coupon, i) => (
+        <Coupon key={i}>
+          <CouponText>
+            <CouponHead>{coupon.title}</CouponHead>
+            <CouponDesc>{coupon.text}</CouponDesc>
+          </CouponText>
+          <Redeem onClick={() => redeem(i)} redeemed={coupon.redeemed}>
+            &#128504; Redeem
+          </Redeem>
+        </Coupon>
+      ));
 
-  return <CouponContainer>{couponList}</CouponContainer>;
+  return (
+    <CouponContainer>
+      {oldHead}
+      {couponList}
+    </CouponContainer>
+  );
 };
 
 export default Coupons;

@@ -8,14 +8,20 @@ export const CouponProvider = ({ children }) => {
 
   if (!coupons) {
     setCoupons([
-      { title: "Back Rub", text: "Good for one back rub" },
-      { title: "Foot Rub", text: "Good for one foot rub" },
-      { title: "Date Night", text: "Good for one date night" },
+      { title: "Back Rub", text: "Good for one back rub", redeemed: false },
+      { title: "Foot Rub", text: "Good for one foot rub", redeemed: false },
+      { title: "Date Night", text: "Good for one date night", redeemed: false },
     ]);
   }
 
+  const redeem = (index) => {
+    setCoupons(
+      coupons.map((c, i) => (i === index ? { ...c, redeemed: true } : c))
+    );
+  };
+
   return (
-    <CouponContext.Provider value={{ coupons }}>
+    <CouponContext.Provider value={{ coupons, redeem }}>
       {children}
     </CouponContext.Provider>
   );

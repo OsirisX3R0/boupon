@@ -4,6 +4,12 @@ export const CouponContainer = styled.div`
   padding: 1rem;
 `;
 
+export const OldHead = styled.h4`
+  color: #999;
+  font-family: sans-serif;
+  text-align: center;
+`;
+
 export const Coupon = styled.div`
   padding: 0.75rem;
   border-radius: 5px;
@@ -24,8 +30,8 @@ export const CouponDesc = styled.p`
 `;
 
 export const Redeem = styled.button`
-  background-color: transparent;
-  color: #0b0;
+  background-color: ${(props) => (props.redeemed ? "#ccc" : "transparent")};
+  color: ${(props) => (props.redeemed ? "#999" : "#0b0")};
   font-weight: bold;
   border: none;
   border-radius: 5px;

@@ -7,6 +7,7 @@ function App() {
     <GlobalProvider>
       <CouponProvider>
         <Coupons />
+        <Coupons old />
       </CouponProvider>
     </GlobalProvider>
   );
