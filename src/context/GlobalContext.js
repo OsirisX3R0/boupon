@@ -1,5 +1,7 @@
 import { createContext } from "react";
 import { createGlobalStyle } from "styled-components";
+import Login from "../components/Login";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const GlobalSyle = createGlobalStyle`
   body {
@@ -12,9 +14,15 @@ const GlobalSyle = createGlobalStyle`
 
 export const GlobalContext = createContext();
 
-export const GlobalProvider = ({ children }) => (
-  <GlobalContext.Provider value={{}}>
-    <GlobalSyle />
-    {children}
-  </GlobalContext.Provider>
-);
+export const GlobalProvider = ({ children }) => {
+  const [authenticated, setAuthenticated] = useLocalStorage("auth");
+
+  const app = !authenticated ? <Login /> : children;
+
+  return (
+    <GlobalContext.Provider value={{ setAuthenticated }}>
+      <GlobalSyle />
+      {app}
+    </GlobalContext.Provider>
+  );
+};

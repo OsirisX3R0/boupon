@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { config } from "dotenv";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // import * as serviceWorker from "./serviceWorker";
-
+config();
 ReactDOM.render(
   <React.StrictMode>
     <App />
