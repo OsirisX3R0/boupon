@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createContext } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 
@@ -14,10 +15,14 @@ export const CouponProvider = ({ children }) => {
     ]);
   }
 
-  const redeem = (index) => {
+  const redeem = async (index) => {
     setCoupons(
       coupons.map((c, i) => (i === index ? { ...c, redeemed: true } : c))
     );
+
+    // let coupon = coupons.find((c, i) => i === index);
+
+    // await axios.post("/api/send", { ...coupon });
   };
 
   return (

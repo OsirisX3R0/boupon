@@ -14,6 +14,7 @@ export const LoginForm = styled.div`
 `;
 
 export const Title = styled.h1`
+  background-color: #eee;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   width: 100%;
@@ -36,7 +37,7 @@ export const OldHead = styled.h4`
   text-align: center;
 `;
 
-export const Coupon = styled.div`
+export const CouponCard = styled.div`
   padding: 0.75rem;
   border-radius: 5px;
   margin-bottom: 1rem;
