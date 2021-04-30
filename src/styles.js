@@ -71,3 +71,8 @@ export const Redeem = styled.button`
     background-color: rgba(0, 200, 0, 0.1);
   }
 `;
+
+export const NoCoupons = styled.div`
+  color: #bbb;
+  text-align: center;
+`;

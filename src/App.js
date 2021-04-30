@@ -10,7 +10,7 @@ function App() {
       <CouponProvider>
         <Title>Boupon</Title>
         <Coupons />
-        <Coupons old />
+        <Coupons redeemed />
       </CouponProvider>
     </GlobalProvider>
   );

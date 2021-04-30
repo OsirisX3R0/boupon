@@ -9,15 +9,30 @@ export const CouponProvider = ({ children }) => {
 
   if (!coupons) {
     setCoupons([
-      { title: "Back Rub", text: "Good for one back rub", redeemed: false },
-      { title: "Foot Rub", text: "Good for one foot rub", redeemed: false },
-      { title: "Date Night", text: "Good for one date night", redeemed: false },
+      {
+        id: 1,
+        title: "Back Rub",
+        text: "Good for one back rub",
+        redeemed: false,
+      },
+      {
+        id: 2,
+        title: "Foot Rub",
+        text: "Good for one foot rub",
+        redeemed: false,
+      },
+      {
+        id: 3,
+        title: "Date Night",
+        text: "Good for one date night",
+        redeemed: false,
+      },
     ]);
   }
 
-  const redeem = async (index) => {
+  const redeem = async (id) => {
     setCoupons(
-      coupons.map((c, i) => (i === index ? { ...c, redeemed: true } : c))
+      coupons.map((c) => (c.id === id ? { ...c, redeemed: true } : c))
     );
 
     // let coupon = coupons.find((c, i) => i === index);

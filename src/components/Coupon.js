@@ -8,7 +8,7 @@ import {
   Redeem,
 } from "../styles";
 
-const Coupon = ({ coupon, index }) => {
+const Coupon = ({ coupon }) => {
   const { redeem } = useContext(CouponContext);
 
   return (
@@ -17,7 +17,7 @@ const Coupon = ({ coupon, index }) => {
         <CouponHead>{coupon.title}</CouponHead>
         <CouponDesc>{coupon.text}</CouponDesc>
       </CouponText>
-      <Redeem onClick={() => redeem(index)} redeemed={coupon.redeemed}>
+      <Redeem onClick={() => redeem(coupon.id)} redeemed={coupon.redeemed}>
         &#128504; Redeem
       </Redeem>
     </CouponCard>

@@ -1,24 +1,30 @@
 import { useContext } from "react";
 import { CouponContext } from "../context/CouponContext";
-import { CouponContainer, OldHead } from "../styles";
+import { CouponContainer, NoCoupons, OldHead } from "../styles";
 import Coupon from "./Coupon";
 
-const Coupons = ({ old }) => {
+const Coupons = ({ redeemed }) => {
   const { coupons } = useContext(CouponContext);
 
-  const oldHead = old && <OldHead>Redeemed Coupons</OldHead>;
+  const oldHead = redeemed && <OldHead>Redeemed Coupons</OldHead>;
 
   const couponList =
     coupons &&
     coupons.length &&
     coupons
-      .filter((c) => (old ? c.redeemed : !c.redeemed))
-      .map((coupon, i) => <Coupon coupon={coupon} index={i} key={i} />);
+      .filter((c) => (redeemed ? c.redeemed : !c.redeemed))
+      .map((coupon) => <Coupon coupon={coupon} key={coupon.id} />);
+
+  const noCoupons = ((!redeemed && coupons.every((c) => c.redeemed)) ||
+    (redeemed && coupons.every((c) => !c.redeemed))) && (
+    <NoCoupons>No Coupons</NoCoupons>
+  );
 
   return (
     <CouponContainer>
       {oldHead}
       {couponList}
+      {noCoupons}
     </CouponContainer>
   );
 };
