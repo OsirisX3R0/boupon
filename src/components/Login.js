@@ -9,7 +9,11 @@ const Login = () => {
   useEffect(() => {
     console.log(process.env.REACT_APP_PASSWORD);
     if (password === process.env.REACT_APP_PASSWORD) {
-      setAuthenticated(true);
+      setAuthenticated("base");
+    }
+
+    if (password === process.env.REACT_APP_ADMIN_PASSWORD) {
+      setAuthenticated("admin");
     }
   }, [password, setAuthenticated]);
 
