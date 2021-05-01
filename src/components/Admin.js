@@ -7,14 +7,16 @@ const Admin = () => {
   return (
     <table>
       <thead>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Text</th>
-        <th>Redeemed</th>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Text</th>
+          <th>Redeemed</th>
+        </tr>
       </thead>
       <tbody>
         {coupons.map((coupon) => (
-          <tr>
+          <tr key={coupon.id}>
             <td>{coupon.id}</td>
             <td>{coupon.title}</td>
             <td>{coupon.text}</td>
