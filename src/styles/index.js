@@ -1,7 +1,13 @@
 // import * as core from './core'
 // import * as login from './login'
 // import * as coupons from './coupons'
-import { Title, Button, BlockButton, BlockButtonMargin } from "./core";
+import {
+  Title,
+  Button,
+  BlockButton,
+  BlockButtonMargin,
+  TextField,
+} from "./core";
 import { LoginContainer, LoginForm } from "./login";
 import {
   CouponContainer,
@@ -20,6 +26,7 @@ export {
   Button,
   BlockButton,
   BlockButtonMargin,
+  TextField,
   LoginContainer,
   LoginForm,
   CouponContainer,

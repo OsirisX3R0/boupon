@@ -4,7 +4,7 @@ import { CouponProvider } from "./context/CouponContext";
 import { GlobalProvider } from "./context/GlobalContext";
 import { Title } from "./styles";
 import CouponView from "./components/coupons/CouponView";
-import Home from "./components/Home";
+import Home from "./components/home/Home";
 import "./App.scss";
 
 function App() {

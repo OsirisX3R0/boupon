@@ -1,13 +1,19 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 
-import useLocalStorage from "../hooks/useLocalStorage";
-import { BlockButtonMargin, WelcomeContainer, WelcomeHeader } from "../styles";
+import useLocalStorage from "../../hooks/useLocalStorage";
+import {
+  BlockButtonMargin,
+  WelcomeContainer,
+  WelcomeHeader,
+} from "../../styles";
+import EnterKey from "./EnterKey";
 
 const Home = () => {
   const history = useHistory();
   const [key, setKey] = useLocalStorage("bouponKey");
+  const [showEnterKey, setShowEnterKey] = useState(false);
 
   useEffect(() => {
     if (key) {
@@ -27,7 +33,14 @@ const Home = () => {
       <BlockButtonMargin primary onClick={createAccount}>
         Get Started
       </BlockButtonMargin>
-      <BlockButtonMargin secondary>I have a code</BlockButtonMargin>
+      <BlockButtonMargin secondary onClick={() => setShowEnterKey(true)}>
+        I have a key
+      </BlockButtonMargin>
+      <EnterKey
+        isOpen={showEnterKey}
+        onRequestClose={() => setShowEnterKey(false)}
+        contentLabel="Enter key"
+      />
     </WelcomeContainer>
   );
 };
