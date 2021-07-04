@@ -2,6 +2,12 @@ import { useEffect } from "react";
 import { useHistory } from "react-router";
 
 import useLocalStorage from "../hooks/useLocalStorage";
+import {
+  BlockButton,
+  BlockButtonMargin,
+  WelcomeContainer,
+  WelcomeHeader,
+} from "../styles";
 
 const Home = () => {
   const history = useHistory();
@@ -12,11 +18,11 @@ const Home = () => {
   }, [history, key]);
 
   return (
-    <>
-      <h3>Welcome!</h3>
-      <button>Get Started</button>
-      <button>I have a code</button>
-    </>
+    <WelcomeContainer>
+      <WelcomeHeader>Welcome!</WelcomeHeader>
+      <BlockButtonMargin primary>Get Started</BlockButtonMargin>
+      <BlockButtonMargin secondary>I have a code</BlockButtonMargin>
+    </WelcomeContainer>
   );
 };
 

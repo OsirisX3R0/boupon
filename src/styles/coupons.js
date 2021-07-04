@@ -1,32 +1,5 @@
 import styled from "styled-components";
-
-export const LoginContainer = styled.div`
-  height: 100vh;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const LoginForm = styled.div`
-  display: grid;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Title = styled.h1`
-  background-color: #eee;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  width: 100%;
-  margin: 0;
-  padding: 1rem 0;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  color: #53a318;
-  text-transform: uppercase;
-  text-align: center;
-  position: sticky;
-  top: 0;
-`;
+import { Button } from "./core";
 
 export const CouponContainer = styled.div`
   padding: 1rem;
@@ -56,16 +29,9 @@ export const CouponDesc = styled.p`
   font-family: "Open Sans", sans-serif;
 `;
 
-export const Redeem = styled.button`
+export const Redeem = styled(Button)`
   background-color: ${(props) => (props.redeemed ? "#ccc" : "transparent")};
   color: ${(props) => (props.redeemed ? "#999" : "#0b0")};
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  transition: 0.2s;
-  cursor: pointer;
 
   &:hover {
     background-color: rgba(0, 200, 0, 0.1);
