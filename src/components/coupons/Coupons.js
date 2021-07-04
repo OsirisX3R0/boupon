@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { CouponContext } from "../context/CouponContext";
-import { CouponContainer, NoCoupons, OldHead } from "../styles";
+
+import { CouponContext } from "../../context/CouponContext";
+import { CouponContainer, NoCoupons, OldHead } from "../../styles";
 import Coupon from "./Coupon";
 
 const Coupons = ({ redeemed }) => {

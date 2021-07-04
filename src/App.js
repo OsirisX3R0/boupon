@@ -1,18 +1,29 @@
-import Coupons from "./components/Coupons";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import { CouponProvider } from "./context/CouponContext";
 import { GlobalProvider } from "./context/GlobalContext";
-import "./App.scss";
 import { Title } from "./styles";
+import CouponView from "./components/coupons/CouponView";
+import Home from "./components/Home";
+import "./App.scss";
 
 function App() {
   return (
-    <GlobalProvider>
-      <CouponProvider>
-        <Title>Boupon</Title>
-        <Coupons />
-        <Coupons redeemed />
-      </CouponProvider>
-    </GlobalProvider>
+    <Router>
+      <GlobalProvider>
+        <CouponProvider>
+          <Title>Boupon</Title>
+          <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
+            <Route path="/coupons">
+              <CouponView />
+            </Route>
+          </Switch>
+        </CouponProvider>
+      </GlobalProvider>
+    </Router>
   );
 }
 

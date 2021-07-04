@@ -1,12 +1,13 @@
 import { useContext } from "react";
-import { CouponContext } from "../context/CouponContext";
+
+import { CouponContext } from "../../context/CouponContext";
 import {
   CouponCard,
   CouponDesc,
   CouponHead,
   CouponText,
   Redeem,
-} from "../styles";
+} from "../../styles";
 
 const Coupon = ({ coupon }) => {
   const { redeem } = useContext(CouponContext);
