@@ -10,7 +10,9 @@ const Home = () => {
   const [key, setKey] = useLocalStorage("bouponKey");
 
   useEffect(() => {
-    if (key) history.push("/coupons");
+    if (key) {
+      history.push("/coupons");
+    }
   }, [history, key]);
 
   const createAccount = () => {

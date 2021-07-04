@@ -14,7 +14,7 @@ function App() {
         <CouponProvider>
           <Title>Boupon</Title>
           <Switch>
-            <Route path="/">
+            <Route path="/" exact>
               <Home />
             </Route>
             <Route path="/coupons">
