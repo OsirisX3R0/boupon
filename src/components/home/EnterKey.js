@@ -1,10 +1,13 @@
 import Modal from "react-modal";
-import { TextField } from "../../styles";
+import { CenteredTextField } from "../../styles";
+
+Modal.setAppElement("#root");
 
 const EnterKey = (props) => {
   return (
     <Modal {...props}>
-      <TextField type="text" />
+      <h2>Enter code</h2>
+      <CenteredTextField type="text" />
     </Modal>
   );
 };

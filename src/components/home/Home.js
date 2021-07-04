@@ -15,6 +15,12 @@ const Home = () => {
   const [key, setKey] = useLocalStorage("bouponKey");
   const [showEnterKey, setShowEnterKey] = useState(false);
 
+  const customStyles = {
+    content: {
+      height: 300,
+    },
+  };
+
   useEffect(() => {
     if (key) {
       history.push("/coupons");
@@ -40,6 +46,7 @@ const Home = () => {
         isOpen={showEnterKey}
         onRequestClose={() => setShowEnterKey(false)}
         contentLabel="Enter key"
+        styles={customStyles}
       />
     </WelcomeContainer>
   );

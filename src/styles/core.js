@@ -44,7 +44,12 @@ export const BlockButtonMargin = styled(BlockButton)`
 export const TextField = styled.input`
   width: 100%;
   font-family: "Montserrat", sans-serif;
+  font-size: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 1rem 0;
+  padding: 1rem;
+`;
+
+export const CenteredTextField = styled(TextField)`
+  text-align: center;
 `;

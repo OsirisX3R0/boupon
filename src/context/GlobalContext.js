@@ -5,6 +5,12 @@ import { createGlobalStyle } from "styled-components";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const GlobalSyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     background-color: #f5f5f5;
     color: #333;

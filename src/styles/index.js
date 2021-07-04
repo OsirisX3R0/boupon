@@ -7,6 +7,7 @@ import {
   BlockButton,
   BlockButtonMargin,
   TextField,
+  CenteredTextField,
 } from "./core";
 import { LoginContainer, LoginForm } from "./login";
 import {
@@ -27,6 +28,7 @@ export {
   BlockButton,
   BlockButtonMargin,
   TextField,
+  CenteredTextField,
   LoginContainer,
   LoginForm,
   CouponContainer,
