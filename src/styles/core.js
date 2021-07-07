@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { buttonBackgroundColor, buttonTextColor } from "./helpers";
+import {
+  buttonBackgroundColor,
+  buttonMargin,
+  buttonTextColor,
+} from "./helpers";
 
 export const Title = styled.h1`
   background-color: #eee;
@@ -25,8 +29,9 @@ export const Button = styled.button`
   border-radius: 5px;
   outline: none;
   transition: 0.2s;
-  padding: 0.5rem;
+  padding: 0.75rem;
   cursor: pointer;
+  margin: ${(props) => buttonMargin(props)};
 
   &:hover {
     background-color: darken(${(props) => buttonBackgroundColor(props)}, 25%);
@@ -35,10 +40,6 @@ export const Button = styled.button`
 
 export const BlockButton = styled(Button)`
   width: 100%;
-`;
-
-export const BlockButtonMargin = styled(BlockButton)`
-  margin: 0.5rem 0;
 `;
 
 export const TextField = styled.input`

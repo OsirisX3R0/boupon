@@ -1,11 +1,7 @@
-// import * as core from './core'
-// import * as login from './login'
-// import * as coupons from './coupons'
 import {
   Title,
   Button,
   BlockButton,
-  BlockButtonMargin,
   TextField,
   CenteredTextField,
 } from "./core";
@@ -26,7 +22,6 @@ export {
   Title,
   Button,
   BlockButton,
-  BlockButtonMargin,
   TextField,
   CenteredTextField,
   LoginContainer,
