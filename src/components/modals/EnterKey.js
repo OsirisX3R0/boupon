@@ -1,14 +1,12 @@
-import Modal from "react-modal";
+import BaseModal from "../modals/BaseModal";
 import { CenteredTextField } from "../../styles";
-
-Modal.setAppElement("#root");
 
 const EnterKey = (props) => {
   return (
-    <Modal {...props}>
+    <BaseModal {...props}>
       <h2>Enter code</h2>
       <CenteredTextField type="text" />
-    </Modal>
+    </BaseModal>
   );
 };
 

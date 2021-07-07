@@ -8,18 +8,12 @@ import {
   WelcomeContainer,
   WelcomeHeader,
 } from "../../styles";
-import EnterKey from "./EnterKey";
+import EnterKey from "../modals/EnterKey";
 
 const Home = () => {
   const history = useHistory();
   const [key, setKey] = useLocalStorage("bouponKey");
   const [showEnterKey, setShowEnterKey] = useState(false);
-
-  const customStyles = {
-    content: {
-      height: 300,
-    },
-  };
 
   useEffect(() => {
     if (key) {
@@ -46,7 +40,6 @@ const Home = () => {
         isOpen={showEnterKey}
         onRequestClose={() => setShowEnterKey(false)}
         contentLabel="Enter key"
-        styles={customStyles}
       />
     </WelcomeContainer>
   );
