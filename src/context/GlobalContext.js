@@ -22,12 +22,16 @@ const GlobalSyle = createGlobalStyle`
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
+  const [key, setKey] = useLocalStorage("bouponKey");
+  const [name, setName] = useLocalStorage("bouponName");
   const [auth, setAuth] = useLocalStorage("auth");
 
   // const app = !auth ? <Login /> : auth === "admin" ? <Admin /> : children;
 
   return (
-    <GlobalContext.Provider value={{ auth, setAuth }}>
+    <GlobalContext.Provider
+      value={{ key, setKey, name, setName, auth, setAuth }}
+    >
       <GlobalSyle />
       {children}
     </GlobalContext.Provider>

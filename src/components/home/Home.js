@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
+import { GlobalContext } from "../../context/GlobalContext";
 
-import useLocalStorage from "../../hooks/useLocalStorage";
 import { BlockButton, WelcomeContainer, WelcomeHeader } from "../../styles";
 import EnterKey from "../modals/EnterKey";
 import EnterName from "../modals/EnterName";
 
 const Home = () => {
   const history = useHistory();
-  const [key, setKey] = useLocalStorage("bouponKey");
+  const { key } = useContext(GlobalContext);
   const [showEnterKey, setShowEnterKey] = useState(false);
   const [showEnterName, setShowEnterName] = useState(false);
 
@@ -39,7 +39,6 @@ const Home = () => {
         isOpen={showEnterName}
         onRequestClose={() => setShowEnterName(false)}
         contentLabel="Tell us your name"
-        setKey={setKey}
       />
       <EnterKey
         isOpen={showEnterKey}
