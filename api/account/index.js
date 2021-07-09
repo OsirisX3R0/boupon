@@ -5,7 +5,7 @@ let client = new faunadb.Client({ secret: process.env.FAUNA_ADMIN_KEY });
 let q = faunadb.query;
 
 module.exports = (req, res) => {
-  let { name } = req.body;
+  const { name } = req.body;
   let key = uuid();
 
   client
