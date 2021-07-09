@@ -11,8 +11,7 @@ const EnterName = ({ setKey, ...props }) => {
   };
 
   return (
-    <BaseModal {...props}>
-      <h2>Tell us your name</h2>
+    <BaseModal title="Tell us your name" {...props}>
       <CenteredTextField type="text" />
       <BlockButton topMargin="1.5rem" primary onClick={createAccount}>
         Let's Go!

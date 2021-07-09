@@ -17,6 +17,7 @@ import {
   NoCoupons,
 } from "./coupons";
 import { WelcomeContainer, WelcomeHeader } from "./welcome";
+import { ModalHead } from "./modal";
 
 export {
   Title,
@@ -36,4 +37,5 @@ export {
   NoCoupons,
   WelcomeContainer,
   WelcomeHeader,
+  ModalHead,
 };
