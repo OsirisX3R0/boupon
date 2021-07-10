@@ -54,3 +54,16 @@ export const TextField = styled.input`
 export const CenteredTextField = styled(TextField)`
   text-align: center;
 `;
+
+export const SelectBox = styled.select`
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1rem;
+`;
+
+export const CenteredSelectBox = styled(SelectBox)`
+  text-align: center;
+`;
