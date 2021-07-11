@@ -6,10 +6,16 @@ let q = faunadb.query;
 module.exports = (req, res) => {
   const { key } = req.query;
 
-  return client
+  client
     .query(q.Paginate(q.Match(q.Index("users_by_key"), key)))
-    .then((response) => {
-      return res.json(response);
+    .then((indexResp) => {
+      Promise.all(
+        indexResp.data.map((ref) =>
+          client.query(q.Get(q.Ref(q.Collection("users"), ref.id)))
+        )
+      ).then((response) => {
+        return res.json(response);
+      });
     })
     .catch(({ name, message, description }) => {
       return res.json({ name, message, description });
