@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import useRedirect from "../../hooks/useRedirect";
 import { BlockButton, WelcomeContainer, WelcomeHeader } from "../../styles";
-import EnterKey from "../modals/EnterKey";
 import EnterName from "../modals/EnterName";
+import EnterKey from "../modals/EnterKey";
 
 const Home = () => {
   useRedirect();

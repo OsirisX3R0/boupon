@@ -5,17 +5,17 @@ import { GlobalContext } from "../context/GlobalContext";
 
 const useRedirect = () => {
   const history = useHistory();
-  const { key } = useContext(GlobalContext);
+  const { key, name } = useContext(GlobalContext);
 
   useEffect(() => {
     switch (history.location.pathname) {
       case "/":
-        if (key) history.push("/coupons");
+        if (key && name) history.push("/coupons");
         break;
       default:
-        if (!key) history.push("/");
+        if (!key || !name) history.push("/");
     }
-  }, [history, key]);
+  }, [history, key, name]);
 };
 
 export default useRedirect;
