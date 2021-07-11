@@ -44,6 +44,7 @@ export const BlockButton = styled(Button)`
 
 export const TextField = styled.input`
   width: 100%;
+  background-color: #f5f5f5;
   font-family: "Montserrat", sans-serif;
   font-size: 0.75rem;
   border: 1px solid #ccc;
@@ -57,6 +58,7 @@ export const CenteredTextField = styled(TextField)`
 
 export const SelectBox = styled.select`
   width: 100%;
+  background-color: #f5f5f5;
   font-family: "Montserrat", sans-serif;
   font-size: 0.75rem;
   border: 1px solid #ccc;
