@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router";
 
@@ -13,10 +12,8 @@ const useRedirect = () => {
       case "/":
         if (key) history.push("/coupons");
         break;
-      case "/coupons":
-        if (!key) history.push("/");
-        break;
       default:
+        if (!key) history.push("/");
     }
   }, [history, key]);
 };
