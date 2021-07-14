@@ -26,6 +26,7 @@ const EnterKey = ({ close, ...props }) => {
     const innerGetAccount = async () => {
       getAccount().then((res) => {
         setUsers(res.data);
+        setLocalName(res.data[0].data.name);
         nextStep();
       });
     };
@@ -46,7 +47,8 @@ const EnterKey = ({ close, ...props }) => {
   };
 
   const SelectName = ({ nextStep }) => {
-    const innerSaveName = (e) => {
+    const innerSaveName = () => {
+      setKey(localKey);
       setName(localName);
       close();
     };
