@@ -35,6 +35,7 @@ const Home = () => {
       <EnterKey
         isOpen={showEnterKey}
         onRequestClose={() => setShowEnterKey(false)}
+        close={() => setShowEnterKey(false)}
         contentLabel="Enter key"
       />
     </WelcomeContainer>

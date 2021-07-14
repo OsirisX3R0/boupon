@@ -3,14 +3,16 @@ import { ModalHead } from "../../styles";
 
 Modal.setAppElement("#root");
 
-Modal.defaultStyles.content.height = "200px";
-Modal.defaultStyles.content.marginTop = "50px";
+const BaseModal = ({ children, title, height, ...props }) => {
+  Modal.defaultStyles.content.height = height || "200px";
+  Modal.defaultStyles.content.marginTop = "50px";
 
-const BaseModal = ({ children, title, ...props }) => (
-  <Modal {...props}>
-    <ModalHead>{title}</ModalHead>
-    {children}
-  </Modal>
-);
+  return (
+    <Modal {...props}>
+      {title ? <ModalHead>{title}</ModalHead> : null}
+      {children}
+    </Modal>
+  );
+};
 
 export default BaseModal;

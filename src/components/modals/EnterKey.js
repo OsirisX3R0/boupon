@@ -4,19 +4,15 @@ import StepWizard from "react-step-wizard";
 
 import { GlobalContext } from "../../context/GlobalContext";
 import BaseModal from "../modals/BaseModal";
-import { BlockButton, CenteredTextField } from "../../styles";
+import { BlockButton, CenteredTextField, ModalHead } from "../../styles";
 import Select from "../select/Select";
 
-const EnterKey = (props) => {
+const EnterKey = ({ close, ...props }) => {
   const { setKey, setName } = useContext(GlobalContext);
   const [localKey, setLocalKey] = useState("");
   const [localName, setLocalName] = useState("");
   const [users, setUsers] = useState([]);
   const [someoneElse, setSomeoneElse] = useState(false);
-
-  const saveName = (e) => {
-    setName(e.target.value);
-  };
 
   const getAccount = () => {
     return axios.get(`/api/account/${localKey}`);
@@ -25,12 +21,6 @@ const EnterKey = (props) => {
   const createUser = () => {
     return axios.post("/api/user", { key: localKey, name: localName });
   };
-
-  const modalTitle = users.length
-    ? someoneElse
-      ? "Tell us your name"
-      : "Who are you?"
-    : "Enter code";
 
   const EnterCode = ({ nextStep }) => {
     const innerGetAccount = async () => {
@@ -41,7 +31,8 @@ const EnterKey = (props) => {
     };
 
     return (
-      <div>
+      <>
+        <ModalHead>Enter code</ModalHead>
         <CenteredTextField
           type="text"
           value={localKey}
@@ -50,39 +41,36 @@ const EnterKey = (props) => {
         <BlockButton topMargin="1.5rem" primary onClick={innerGetAccount}>
           Find account
         </BlockButton>
-      </div>
+      </>
     );
   };
 
   const SelectName = ({ nextStep }) => {
-    const innerSaveName = () => {
-      saveName();
+    const innerSaveName = (e) => {
+      setName(localName);
+      close();
+    };
+    const innerSomeoneElse = () => {
+      setSomeoneElse(true);
       nextStep();
     };
     return (
-      <div>
-        {users.length ? (
-          <>
-            <Select
-              items={users}
-              itemText="data.name"
-              centered
-              value={localName}
-              onChange={(e) => setLocalName(e.target.value)}
-            />
-            <BlockButton topMargin="1.5rem" primary onClick={innerSaveName}>
-              Select User
-            </BlockButton>
-            <BlockButton
-              topMargin="1.5rem"
-              primary
-              onClick={() => setSomeoneElse(true)}
-            >
-              Someone else
-            </BlockButton>
-          </>
-        ) : null}
-      </div>
+      <>
+        <ModalHead>Who are you?</ModalHead>
+        <Select
+          items={users}
+          itemText="data.name"
+          centered
+          value={localName}
+          onChange={(e) => setLocalName(e.target.value)}
+        />
+        <BlockButton topMargin="1.5rem" primary onClick={innerSaveName}>
+          Select User
+        </BlockButton>
+        <BlockButton topMargin="1.5rem" primary onClick={innerSomeoneElse}>
+          Someone else
+        </BlockButton>
+      </>
     );
   };
 
@@ -91,30 +79,31 @@ const EnterKey = (props) => {
       createUser.then(() => {
         setKey(localKey);
         setName(localName);
+        close();
       });
     };
 
     return (
-      <div>
-        {someoneElse ? (
-          <>
-            <CenteredTextField
-              type="text"
-              value={localName}
-              onChange={(e) => setLocalName(e.target.value)}
-            />
-            <BlockButton topMargin="1.5rem" primary onClick={innerCreateUser}>
-              Add user
-            </BlockButton>
-          </>
-        ) : null}
-      </div>
+      <>
+        <ModalHead>Tell us your name</ModalHead>
+        <CenteredTextField
+          type="text"
+          value={localName}
+          onChange={(e) => setLocalName(e.target.value)}
+        />
+        <BlockButton topMargin="1.5rem" primary onClick={innerCreateUser}>
+          Add user
+        </BlockButton>
+      </>
     );
   };
 
   return (
     <>
-      <BaseModal title={modalTitle} {...props}>
+      <BaseModal
+        height={users.length && !someoneElse ? "260px" : "200px"}
+        {...props}
+      >
         <StepWizard>
           <EnterCode />
           <SelectName />
