@@ -14,16 +14,16 @@ const EnterKey = ({ close, ...props }) => {
   const [users, setUsers] = useState([]);
   const [someoneElse, setSomeoneElse] = useState(false);
 
-  const getAccount = () => {
+  const getAccount = async () => {
     return axios.get(`/api/account/${localKey}`);
   };
 
-  const createUser = () => {
+  const createUser = async () => {
     return axios.post("/api/user", { key: localKey, name: localName });
   };
 
   const EnterCode = ({ nextStep }) => {
-    const innerGetAccount = async () => {
+    const innerGetAccount = () => {
       getAccount().then((res) => {
         setUsers(res.data);
         setLocalName(res.data[0].data.name);
@@ -78,7 +78,7 @@ const EnterKey = ({ close, ...props }) => {
 
   const EnterName = () => {
     const innerCreateUser = () => {
-      createUser.then(() => {
+      createUser().then(() => {
         setKey(localKey);
         setName(localName);
         close();
