@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import { BlockButton, WelcomeContainer, WelcomeHeader } from "../../styles";
-import EnterName from "../modals/EnterName";
-import EnterKey from "../modals/EnterKey";
+import EnterName from "./EnterName";
+import EnterKey from "./EnterKey";
 
 const Home = () => {
   const [showEnterKey, setShowEnterKey] = useState(false);

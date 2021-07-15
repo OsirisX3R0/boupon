@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { CouponContext } from "../context/CouponContext";
+import { CouponContext } from "../../context/CouponContext";
 
-const Admin = () => {
+const Manage = () => {
   const { coupons } = useContext(CouponContext);
 
   return (
@@ -28,4 +28,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default Manage;

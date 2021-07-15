@@ -1,7 +1,5 @@
 import { createContext } from "react";
 import { createGlobalStyle } from "styled-components";
-// import Login from "../components/Login";
-// import Admin from "../components/Admin";
 import useLocalStorage from "../hooks/useLocalStorage";
 import useRedirect from "../hooks/useRedirect";
 
@@ -27,8 +25,6 @@ export const GlobalProvider = ({ children }) => {
   const [name, setName] = useLocalStorage("boupon.name");
   const [auth, setAuth] = useLocalStorage("auth");
   useRedirect(key, name);
-
-  // const app = !auth ? <Login /> : auth === "admin" ? <Admin /> : children;
 
   return (
     <GlobalContext.Provider
