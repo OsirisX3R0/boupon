@@ -1,0 +1,51 @@
+import { createContext, useContext, useState } from "react";
+import axios from "axios";
+import StepWizard from "react-step-wizard";
+
+import { GlobalContext } from "./GlobalContext";
+import BaseModal from "../components/modals/BaseModal";
+
+export const EnterKeyContext = createContext();
+
+export const KeyWizard = ({ close, children, ...props }) => {
+  const { setKey, setName } = useContext(GlobalContext);
+  const [localKey, setLocalKey] = useState("");
+  const [localName, setLocalName] = useState("");
+  const [users, setUsers] = useState([]);
+  const [someoneElse, setSomeoneElse] = useState(false);
+
+  const getAccount = async () => {
+    return axios.get(`/api/account/${localKey}`);
+  };
+
+  const createUser = async () => {
+    return axios.post("/api/user", { key: localKey, name: localName });
+  };
+
+  return (
+    <EnterKeyContext.Provider
+      value={{
+        setKey,
+        setName,
+        localKey,
+        setLocalKey,
+        localName,
+        setLocalName,
+        users,
+        setUsers,
+        someoneElse,
+        setSomeoneElse,
+        getAccount,
+        createUser,
+        close,
+      }}
+    >
+      <BaseModal
+        height={users.length && !someoneElse ? "260px" : "200px"}
+        {...props}
+      >
+        <StepWizard>{children}</StepWizard>
+      </BaseModal>
+    </EnterKeyContext.Provider>
+  );
+};
