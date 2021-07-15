@@ -23,8 +23,8 @@ const GlobalSyle = createGlobalStyle`
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  const [key, setKey] = useLocalStorage("bouponKey");
-  const [name, setName] = useLocalStorage("bouponName");
+  const [key, setKey] = useLocalStorage("boupon.key");
+  const [name, setName] = useLocalStorage("boupon.name");
   const [auth, setAuth] = useLocalStorage("auth");
   useRedirect(key, name);
 
