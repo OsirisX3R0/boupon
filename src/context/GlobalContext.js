@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 // import Login from "../components/Login";
 // import Admin from "../components/Admin";
 import useLocalStorage from "../hooks/useLocalStorage";
+import useRedirect from "../hooks/useRedirect";
 
 const GlobalSyle = createGlobalStyle`
   * {
@@ -25,6 +26,7 @@ export const GlobalProvider = ({ children }) => {
   const [key, setKey] = useLocalStorage("bouponKey");
   const [name, setName] = useLocalStorage("bouponName");
   const [auth, setAuth] = useLocalStorage("auth");
+  useRedirect(key, name);
 
   // const app = !auth ? <Login /> : auth === "admin" ? <Admin /> : children;
 

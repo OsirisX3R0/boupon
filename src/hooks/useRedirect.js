@@ -1,11 +1,8 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { useHistory } from "react-router";
 
-import { GlobalContext } from "../context/GlobalContext";
-
-const useRedirect = () => {
+const useRedirect = (key, name) => {
   const history = useHistory();
-  const { key, name } = useContext(GlobalContext);
 
   useEffect(() => {
     switch (history.location.pathname) {
