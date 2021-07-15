@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import axios from "axios";
 
-import BaseModal from "../modals/BaseModal";
+import BaseModal from "../core/modals/BaseModal";
 import { BlockButton, CenteredTextField } from "../../styles";
 import { GlobalContext } from "../../context/GlobalContext";
 

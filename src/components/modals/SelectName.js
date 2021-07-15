@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { EnterKeyContext } from "../../context/EnterKeyContext";
 import { BlockButton, ModalHead } from "../../styles";
-import Select from "../select/Select";
+import Select from "../core/select/Select";
 
 const SelectName = ({ nextStep }) => {
   const {

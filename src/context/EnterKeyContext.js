@@ -3,7 +3,7 @@ import axios from "axios";
 import StepWizard from "react-step-wizard";
 
 import { GlobalContext } from "./GlobalContext";
-import BaseModal from "../components/modals/BaseModal";
+import BaseModal from "../components/core/modals/BaseModal";
 
 export const EnterKeyContext = createContext();
 

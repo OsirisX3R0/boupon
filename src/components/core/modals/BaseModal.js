@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import { ModalHead } from "../../styles";
+import { ModalHead } from "../../../styles";
 
 Modal.setAppElement("#root");
 

@@ -1,5 +1,5 @@
 import Option from "./Option";
-import { SelectBox, CenteredSelectBox } from "../../styles";
+import { SelectBox, CenteredSelectBox } from "../../../styles";
 
 const Select = ({ items, itemText, itemValue, centered, ...selectProps }) => {
   const splitValue = () => {
