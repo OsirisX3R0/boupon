@@ -10,6 +10,7 @@ import {
 import { LoginContainer, LoginForm } from "./login";
 import {
   CouponContainer,
+  CouponMainHead,
   OldHead,
   CouponCard,
   CouponText,
@@ -32,6 +33,7 @@ export {
   LoginContainer,
   LoginForm,
   CouponContainer,
+  CouponMainHead,
   OldHead,
   CouponCard,
   CouponText,

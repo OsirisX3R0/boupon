@@ -5,6 +5,11 @@ export const CouponContainer = styled.div`
   padding: 1rem;
 `;
 
+export const CouponMainHead = styled.h2`
+  text-align: center;
+  margin: 2rem 0 1rem;
+`;
+
 export const OldHead = styled.h4`
   color: #999;
   text-align: center;
