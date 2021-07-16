@@ -5,19 +5,22 @@ import {
   buttonTextColor,
 } from "./helpers";
 
-export const Title = styled.h1`
-  background-color: #eee;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
+export const HeaderContainer = styled.header`
   width: 100%;
-  margin: 0;
+  background-color: #eee;
   padding: 1rem 0;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+`;
+
+export const Title = styled.h1`
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  margin: 0;
   color: #53a318;
   text-transform: uppercase;
   text-align: center;
-  position: sticky;
-  top: 0;
 `;
 
 export const Button = styled.button`
@@ -74,3 +77,26 @@ export const ModalHead = styled.h3`
   margin-bottom: 1rem;
   text-align: center;
 `;
+
+export const FixedFooter = styled.footer`
+  width: 100%;
+  background-color: #eee;
+  padding: 1rem 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  bottom: 0;
+`;
+
+export const BottomNav = styled.ul`
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+`;
+
+export const BottomNavItem = styled.li`
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-align: center;
+`;
+
+export const BottomNavIcon = styled.div``;

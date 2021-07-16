@@ -7,6 +7,11 @@ export {
   SelectBox,
   CenteredSelectBox,
   ModalHead,
+  HeaderContainer,
+  FixedFooter,
+  BottomNav,
+  BottomNavItem,
+  BottomNavIcon,
 } from "./core";
 export {
   CouponContainer,

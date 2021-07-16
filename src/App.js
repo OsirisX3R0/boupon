@@ -2,17 +2,18 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { CouponProvider } from "./context/CouponContext";
 import { GlobalProvider } from "./context/GlobalContext";
-import { Title } from "./styles";
 import CouponView from "./components/coupons/CouponView";
 import Home from "./components/home/Home";
 import "./App.scss";
+import Header from "./components/core/header/Header";
+import FooterNav from "./components/core/footer/FooterNav";
 
 function App() {
   return (
     <Router>
       <GlobalProvider>
         <CouponProvider>
-          <Title>Boupon</Title>
+          <Header />
           <Switch>
             <Route path="/" exact>
               <Home />
@@ -21,6 +22,7 @@ function App() {
               <CouponView />
             </Route>
           </Switch>
+          <FooterNav />
         </CouponProvider>
       </GlobalProvider>
     </Router>
