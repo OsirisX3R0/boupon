@@ -4,11 +4,11 @@ import { EnterKeyContext } from "../../context/EnterKeyContext";
 import { BlockButton, CenteredTextField, ModalHead } from "../../styles";
 
 const FindAccount = ({ nextStep }) => {
-  const { getAccount, setUsers, setLocalName, localKey, setLocalKey } =
+  const { getUsers, setUsers, setLocalName, localKey, setLocalKey } =
     useContext(EnterKeyContext);
 
   const innerGetAccount = () => {
-    getAccount().then((res) => {
+    getUsers().then((res) => {
       setUsers(res.data);
       setLocalName(res.data[0].data.name);
       nextStep();

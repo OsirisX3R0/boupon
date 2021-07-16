@@ -14,12 +14,12 @@ export const KeyWizard = ({ close, children, ...props }) => {
   const [users, setUsers] = useState([]);
   const [someoneElse, setSomeoneElse] = useState(false);
 
-  const getAccount = async () => {
-    return axios.get(`/api/account/${localKey}`);
+  const getUsers = async () => {
+    return axios.get(`/api/users/${localKey}`);
   };
 
   const createUser = async () => {
-    return axios.post("/api/user", { key: localKey, name: localName });
+    return axios.post("/api/users", { key: localKey, name: localName });
   };
 
   return (
@@ -35,7 +35,7 @@ export const KeyWizard = ({ close, children, ...props }) => {
         setUsers,
         someoneElse,
         setSomeoneElse,
-        getAccount,
+        getUsers,
         createUser,
         close,
       }}
