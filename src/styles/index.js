@@ -1,4 +1,4 @@
-import {
+export {
   Title,
   Button,
   BlockButton,
@@ -6,9 +6,9 @@ import {
   CenteredTextField,
   SelectBox,
   CenteredSelectBox,
+  ModalHead,
 } from "./core";
-import { LoginContainer, LoginForm } from "./login";
-import {
+export {
   CouponContainer,
   CouponMainHead,
   OldHead,
@@ -19,29 +19,4 @@ import {
   Redeem,
   NoCoupons,
 } from "./coupons";
-import { WelcomeContainer, WelcomeHeader } from "./welcome";
-import { ModalHead } from "./modal";
-
-export {
-  Title,
-  Button,
-  BlockButton,
-  TextField,
-  CenteredTextField,
-  SelectBox,
-  CenteredSelectBox,
-  LoginContainer,
-  LoginForm,
-  CouponContainer,
-  CouponMainHead,
-  OldHead,
-  CouponCard,
-  CouponText,
-  CouponHead,
-  CouponDesc,
-  Redeem,
-  NoCoupons,
-  WelcomeContainer,
-  WelcomeHeader,
-  ModalHead,
-};
+export { WelcomeContainer, WelcomeHeader } from "./home";

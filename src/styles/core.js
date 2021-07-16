@@ -69,3 +69,8 @@ export const SelectBox = styled.select`
 export const CenteredSelectBox = styled(SelectBox)`
   text-align: center;
 `;
+
+export const ModalHead = styled.h3`
+  margin-bottom: 1rem;
+  text-align: center;
+`;
