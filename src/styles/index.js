@@ -1,4 +1,5 @@
 export {
+  ViewHead,
   Title,
   Button,
   BlockButton,
@@ -11,6 +12,7 @@ export {
   FixedFooter,
   BottomNav,
   BottomNavItem,
+  BottomNavLink,
   BottomNavIcon,
 } from "./core";
 export {

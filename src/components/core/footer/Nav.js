@@ -7,8 +7,12 @@ const Nav = () => {
   return (
     <nav>
       <BottomNav>
-        <NavItem Icon={FaUsers}>Users</NavItem>
-        <NavItem Icon={FaCog}>Settings</NavItem>
+        <NavItem path="/users" Icon={FaUsers}>
+          Users
+        </NavItem>
+        <NavItem path="/settings" Icon={FaCog}>
+          Settings
+        </NavItem>
       </BottomNav>
     </nav>
   );

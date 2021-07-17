@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+
 import {
   buttonBackgroundColor,
   buttonMargin,
@@ -21,6 +23,11 @@ export const Title = styled.h1`
   color: #53a318;
   text-transform: uppercase;
   text-align: center;
+`;
+
+export const ViewHead = styled.h2`
+  text-align: center;
+  margin: 2rem 0 1rem;
 `;
 
 export const Button = styled.button`
@@ -97,6 +104,11 @@ export const BottomNavItem = styled.li`
   font-size: 0.8rem;
   font-weight: 400;
   text-align: center;
+`;
+
+export const BottomNavLink = styled(NavLink)`
+  color: #888;
+  text-decoration: none;
 `;
 
 export const BottomNavIcon = styled.div``;

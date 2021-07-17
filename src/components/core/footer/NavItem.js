@@ -1,13 +1,15 @@
-import { BottomNavItem, BottomNavIcon } from "../../../styles";
+import { BottomNavItem, BottomNavLink, BottomNavIcon } from "../../../styles";
 
-const NavItem = ({ Icon, children }) => {
+const NavItem = ({ Icon, path, children }) => {
   return (
-    <BottomNavItem>
-      <BottomNavIcon>
-        <Icon size="1.2rem" />
-      </BottomNavIcon>
-      {children}
-    </BottomNavItem>
+    <BottomNavLink to={path}>
+      <BottomNavItem>
+        <BottomNavIcon>
+          <Icon size="1.2rem" />
+        </BottomNavIcon>
+        {children}
+      </BottomNavItem>
+    </BottomNavLink>
   );
 };
 

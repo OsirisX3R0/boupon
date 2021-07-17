@@ -2,8 +2,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { CouponProvider } from "./context/CouponContext";
 import { GlobalProvider } from "./context/GlobalContext";
-import CouponView from "./components/coupons/CouponView";
 import Home from "./components/home/Home";
+import CouponView from "./components/coupons/CouponView";
+import UserView from "./components/users/UserView";
 import "./App.scss";
 import Header from "./components/core/header/Header";
 import FooterNav from "./components/core/footer/FooterNav";
@@ -20,6 +21,9 @@ function App() {
             </Route>
             <Route path="/coupons">
               <CouponView />
+            </Route>
+            <Route path="/users">
+              <UserView />
             </Route>
           </Switch>
           <FooterNav />
