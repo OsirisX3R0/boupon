@@ -1,10 +1,10 @@
-import { HeaderContainer, Title } from "../../../styles";
+import { AppBar, Typography } from "@material-ui/core";
 
 const Header = () => {
   return (
-    <HeaderContainer>
-      <Title>Boupon</Title>
-    </HeaderContainer>
+    <AppBar position="sticky" color="primary">
+      <Typography variant="h1">Boupon</Typography>
+    </AppBar>
   );
 };
 
