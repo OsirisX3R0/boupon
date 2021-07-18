@@ -5,11 +5,18 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 const theme = createTheme({
   spacing: 8,
   palette: {
+    // type: "dark",
     primary: {
       main: "#53a318",
     },
     secondary: {
       main: "#297AA3",
+    },
+    light: {
+      main: "#eee",
+    },
+    dark: {
+      main: "#333",
     },
   },
   typography: {
