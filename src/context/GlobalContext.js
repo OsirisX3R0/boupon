@@ -1,22 +1,8 @@
 import { createContext } from "react";
-import { createGlobalStyle } from "styled-components";
+
 import useLocalStorage from "../hooks/useLocalStorage";
 import useRedirect from "../hooks/useRedirect";
-
-const GlobalSyle = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    background-color: #f5f5f5;
-    color: #333;
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-  }
-`;
+import Theme from "../theme";
 
 export const GlobalContext = createContext();
 
@@ -30,8 +16,7 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{ key, setKey, name, setName, auth, setAuth }}
     >
-      <GlobalSyle />
-      {children}
+      <Theme>{children}</Theme>
     </GlobalContext.Provider>
   );
 };
