@@ -11,9 +11,6 @@ const theme = createTheme({
     secondary: {
       main: "#297AA3",
     },
-    light: {
-      main: "#eee",
-    },
   },
   typography: {
     fontFamily: ["Montserrat"].join(","),
@@ -36,6 +33,15 @@ const theme = createTheme({
       fontWeight: 500,
       textAlign: "center",
       margin: "2rem 0",
+    },
+  },
+  overrides: {
+    MuiBottomNavigation: {
+      root: {
+        width: "100%",
+        position: "fixed",
+        bottom: 0,
+      },
     },
   },
 });
