@@ -8,6 +8,7 @@ import UserView from "./components/users/UserView";
 import "./App.scss";
 import Header from "./components/core/header/Header";
 import FooterNav from "./components/core/footer/FooterNav";
+import Settings from "./components/settings/Settings";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
             </Route>
             <Route path="/users">
               <UserView />
+            </Route>
+            <Route path="/settings">
+              <Settings />
             </Route>
           </Switch>
           <FooterNav />
