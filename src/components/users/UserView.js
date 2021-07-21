@@ -1,11 +1,20 @@
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
+import { Typography } from "@material-ui/core";
+import { DataGrid } from "@material-ui/data-grid";
 
 import { GlobalContext } from "../../context/GlobalContext";
-import Table from "../core/table/Table";
-import { ViewHead } from "../../styles";
 
-const columns = ["Name", "Created", "Delete"];
+const columns = [
+  {
+    field: "ts",
+    headerName: "Last Updated",
+  },
+  {
+    field: "data.name",
+    headerName: "Name",
+  },
+];
 
 const UserView = () => {
   const { key } = useContext(GlobalContext);
@@ -16,12 +25,12 @@ const UserView = () => {
   }, [key]);
 
   const userTable = users.length ? (
-    <Table columns={columns} rows={users} rowKey="ref.id" />
+    <DataGrid columns={columns} rows={users} />
   ) : null;
 
   return (
     <>
-      <ViewHead>Users</ViewHead>
+      <Typography variant="h2">Users</Typography>
       {userTable}
     </>
   );
