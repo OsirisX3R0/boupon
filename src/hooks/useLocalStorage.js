@@ -9,8 +9,9 @@ const useLocalStorage = (storageKey, initialValue = null) => {
   const [value, setValue] = useState(storageValue);
 
   useEffect(() => {
-    if (initial.current) setStorage(initial.current);
-  }, [initial]);
+    if (initial.current && localStorage.getItem(key.current) === null)
+      setStorage(initial.current);
+  }, []);
 
   const setStorage = (newValue) => {
     localStorage.setItem(key.current, JSON.stringify(newValue));
