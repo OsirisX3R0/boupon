@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 
 import { GlobalContext } from "../../context/GlobalContext";
+import DataTable from "../core/table/DataTable";
 
 const columns = [
   {
@@ -41,31 +42,14 @@ const UserView = () => {
     });
   }, [key]);
 
-  const tableHead = columns.map((column, i) => (
-    <TableCell key={i}>{column.text}</TableCell>
-  ));
-
-  const userRows = users.length
-    ? users.map((user) => (
-        <TableRow key={user["id"]}>
-          {columns.map((column, i) => (
-            <TableCell key={user["id"] + "-" + i}>
-              {user[column.field]}
-            </TableCell>
-          ))}
-        </TableRow>
-      ))
-    : null;
+  const table = users.length ? (
+    <DataTable columns={columns} rows={users} />
+  ) : null;
 
   return (
     <>
       <Typography variant="h2">Users</Typography>
-      <Table>
-        <TableHead>
-          <TableRow>{tableHead}</TableRow>
-        </TableHead>
-        <TableBody>{userRows}</TableBody>
-      </Table>
+      {table}
     </>
   );
 };
