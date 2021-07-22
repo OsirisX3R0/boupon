@@ -1,22 +1,24 @@
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
-import { Typography } from "@material-ui/core";
-import { DataGrid } from "@material-ui/data-grid";
+import {
+  Typography,
+  Table,
+  TableRow,
+  TableHead,
+  TableBody,
+  TableCell,
+} from "@material-ui/core";
 
 import { GlobalContext } from "../../context/GlobalContext";
 
 const columns = [
   {
-    field: "id",
-    headerName: "ID",
+    field: "name",
+    text: "Name",
   },
   {
     field: "ts",
-    headerName: "Last Updated",
-  },
-  {
-    field: "name",
-    headerName: "Name",
+    text: "Last Updated",
   },
 ];
 
@@ -26,25 +28,44 @@ const UserView = () => {
 
   useEffect(() => {
     axios.get(`/api/users/${key}`).then((res) => {
-      debugger;
-      let accountUsers = res.data.map((user) => ({
-        id: user.ref.id,
-        ts: user.ts,
-        name: user.data.name,
-        key: user.data.key,
-      }));
+      let accountUsers = res.data.map((user) => {
+        return {
+          id: user.ref["@ref"].id,
+          ts: user.ts,
+          name: user.data.name,
+          key: user.data.key,
+        };
+      });
+
       setUsers(accountUsers);
     });
   }, [key]);
 
-  const userTable = users.length ? (
-    <DataGrid columns={columns} rows={users} />
-  ) : null;
+  const tableHead = columns.map((column, i) => (
+    <TableCell key={i}>{column.text}</TableCell>
+  ));
+
+  const userRows = users.length
+    ? users.map((user) => (
+        <TableRow key={user["id"]}>
+          {columns.map((column, i) => (
+            <TableCell key={user["id"] + "-" + i}>
+              {user[column.field]}
+            </TableCell>
+          ))}
+        </TableRow>
+      ))
+    : null;
 
   return (
     <>
       <Typography variant="h2">Users</Typography>
-      {userTable}
+      <Table>
+        <TableHead>
+          <TableRow>{tableHead}</TableRow>
+        </TableHead>
+        <TableBody>{userRows}</TableBody>
+      </Table>
     </>
   );
 };
