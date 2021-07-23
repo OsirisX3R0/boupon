@@ -1,13 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
-import {
-  Typography,
-  Table,
-  TableRow,
-  TableHead,
-  TableBody,
-  TableCell,
-} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
+import dayjs from "dayjs";
 
 import { GlobalContext } from "../../context/GlobalContext";
 import DataTable from "../core/table/DataTable";
@@ -32,7 +26,7 @@ const UserView = () => {
       let accountUsers = res.data.map((user) => {
         return {
           id: user.ref["@ref"].id,
-          ts: user.ts,
+          ts: dayjs(user.ts / 1000).format("MM/DD/YYYY h:mm:ssa"),
           name: user.data.name,
           key: user.data.key,
         };
