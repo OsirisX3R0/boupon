@@ -1,14 +1,12 @@
 import { createTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useContext, useMemo } from "react";
 
 import { GlobalContext } from "../context/GlobalContext";
 
 const Theme = ({ children }) => {
-  const { colorTheme } = useContext(GlobalContext);
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const { colorTheme, prefersDarkMode } = useContext(GlobalContext);
 
   const theme = useMemo(
     () =>

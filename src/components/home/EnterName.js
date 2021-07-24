@@ -2,8 +2,9 @@ import { useContext, useState } from "react";
 import axios from "axios";
 
 import BaseModal from "../core/modals/BaseModal";
-import { BlockButton, CenteredTextField } from "../../styles";
 import { GlobalContext } from "../../context/GlobalContext";
+import MarginButton from "../core/button/MarginButton";
+import MarginTextField from "../core/input/MarginTextField";
 
 const EnterName = (props) => {
   const { setKey, setName } = useContext(GlobalContext);
@@ -17,14 +18,23 @@ const EnterName = (props) => {
 
   return (
     <BaseModal title="Tell us your name" {...props}>
-      <CenteredTextField
-        type="text"
+      <MarginTextField
+        top=".5rem"
+        label="Enter Key"
+        fullWidth
+        variant="outlined"
         value={localName}
         onChange={(e) => setLocalName(e.target.value)}
       />
-      <BlockButton topMargin="1.5rem" primary onClick={createAccount}>
-        Let's Go!
-      </BlockButton>
+      <MarginButton
+        top="1.5rem"
+        fullWidth
+        variant="contained"
+        color="primary"
+        onClick={createAccount}
+      >
+        Get Started
+      </MarginButton>
     </BaseModal>
   );
 };

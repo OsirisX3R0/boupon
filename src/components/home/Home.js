@@ -30,15 +30,15 @@ const Home = () => {
         I have a key
       </Button>
       <EnterName
-        isOpen={showEnterName}
-        onRequestClose={() => setShowEnterName(false)}
-        contentLabel="Tell us your name"
+        open={showEnterName}
+        onClose={() => setShowEnterName(false)}
+        // contentLabel="Tell us your name"
       />
       <EnterKey
-        isOpen={showEnterKey}
-        onRequestClose={() => setShowEnterKey(false)}
+        open={showEnterKey}
+        onClose={() => setShowEnterKey(false)}
         close={() => setShowEnterKey(false)}
-        contentLabel="Enter key"
+        // contentLabel="Enter key"
       />
     </Container>
   );

@@ -1,4 +1,5 @@
 import { createContext } from "react";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import useLocalStorage from "../hooks/useLocalStorage";
 import useRedirect from "../hooks/useRedirect";
@@ -13,11 +14,20 @@ export const GlobalProvider = ({ children }) => {
     "boupon.settings.theme",
     "default"
   );
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   useRedirect(key, name);
 
   return (
     <GlobalContext.Provider
-      value={{ key, setKey, name, setName, colorTheme, setColorTheme }}
+      value={{
+        key,
+        setKey,
+        name,
+        setName,
+        colorTheme,
+        setColorTheme,
+        prefersDarkMode,
+      }}
     >
       <Theme>{children}</Theme>
     </GlobalContext.Provider>
