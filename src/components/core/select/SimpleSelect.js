@@ -31,7 +31,11 @@ const SimpleSelect = ({
             text = text[p];
           });
 
-          return items ? <MenuItem value={value} text={text} key={i} /> : null;
+          return items ? (
+            <MenuItem value={value} key={i}>
+              {text}
+            </MenuItem>
+          ) : null;
         })
       : null;
 
