@@ -5,7 +5,9 @@ const useLocalStorage = (storageKey, initialValue = null) => {
   const initial = useRef(initialValue);
   let storageValue = localStorage.getItem(key.current)
     ? JSON.parse(localStorage.getItem(key.current))
-    : initialValue.current;
+    : initialValue && initialValue.current
+    ? initialValue.current
+    : initialValue;
   const [value, setValue] = useState(storageValue);
 
   useEffect(() => {
