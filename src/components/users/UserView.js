@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { Typography } from "@material-ui/core";
+import { Delete } from "@material-ui/icons";
 import dayjs from "dayjs";
 
 import { GlobalContext } from "../../context/GlobalContext";
@@ -14,6 +15,10 @@ const columns = [
   {
     field: "ts",
     text: "Last Updated",
+  },
+  {
+    field: "delete",
+    text: "",
   },
 ];
 
@@ -36,8 +41,15 @@ const UserView = () => {
     });
   }, [key]);
 
+  const deleteCol = (row) => (
+    <>
+      {row.id}
+      <Delete />
+    </>
+  );
+
   const table = users.length ? (
-    <SimpleTable columns={columns} rows={users} />
+    <SimpleTable columns={columns} rows={users} delete={deleteCol} />
   ) : null;
 
   return (
