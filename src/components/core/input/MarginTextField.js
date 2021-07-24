@@ -7,11 +7,13 @@ const useStyles = makeStyles({
     marginRight: (props) => props.right || 0,
     marginLeft: (props) => props.left || 0,
     marginBottom: (props) => props.bottom || 0,
+    textAlign: (props) => (props.centered ? "center" : "left"),
   },
 });
 
-const MarginButton = (props) => {
-  const classes = useStyles(props);
+const MarginButton = ({ top, right, left, bottom, centered, ...props }) => {
+  const styleProps = { top, right, left, bottom, centered };
+  const classes = useStyles(styleProps);
   return <TextField {...props} className={classes.root} />;
 };
 

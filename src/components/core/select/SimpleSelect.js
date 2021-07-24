@@ -1,7 +1,15 @@
+import { Select, MenuItem } from "@material-ui/core";
+
 import Option from "./Option";
 import { SelectBox, CenteredSelectBox } from "../../../styles";
 
-const Select = ({ items, itemText, itemValue, centered, ...selectProps }) => {
+const SimpleSelect = ({
+  items,
+  itemText,
+  itemValue,
+  centered,
+  ...selectProps
+}) => {
   const splitValue = () => {
     let value = itemValue || itemText;
     return value.split(".");
@@ -23,17 +31,17 @@ const Select = ({ items, itemText, itemValue, centered, ...selectProps }) => {
             text = text[p];
           });
 
-          return items ? <Option value={value} text={text} key={i} /> : null;
+          return items ? <MenuItem value={value} text={text} key={i} /> : null;
         })
       : null;
 
   let selectBox = !options ? null : centered ? (
-    <CenteredSelectBox {...selectProps}>{options}</CenteredSelectBox>
+    <Select {...selectProps}>{options}</Select>
   ) : (
-    <SelectBox {...selectProps}>{options}</SelectBox>
+    <Select {...selectProps}>{options}</Select>
   );
 
   return selectBox;
 };
 
-export default Select;
+export default SimpleSelect;

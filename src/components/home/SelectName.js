@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { EnterKeyContext } from "../../context/EnterKeyContext";
 import { BlockButton, ModalHead } from "../../styles";
-import Select from "../core/select/Select";
+import SimpleSelect from "../core/select/SimpleSelect";
 
 const SelectName = () => {
   const {
@@ -29,9 +29,11 @@ const SelectName = () => {
   return (
     <>
       <ModalHead>Who are you?</ModalHead>
-      <Select
+      <SimpleSelect
         items={users}
         itemText="data.name"
+        fullWidth
+        variant="outlined"
         centered
         value={localName}
         onChange={(e) => setLocalName(e.target.value)}
