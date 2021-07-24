@@ -4,7 +4,7 @@ import { EnterKeyContext } from "../../context/EnterKeyContext";
 import { BlockButton, ModalHead } from "../../styles";
 import Select from "../core/select/Select";
 
-const SelectName = ({ nextStep }) => {
+const SelectName = () => {
   const {
     setKey,
     setName,
@@ -14,6 +14,7 @@ const SelectName = ({ nextStep }) => {
     setSomeoneElse,
     users,
     setLocalName,
+    nextStep,
   } = useContext(EnterKeyContext);
 
   const innerSaveName = () => {

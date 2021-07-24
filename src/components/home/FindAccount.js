@@ -3,8 +3,8 @@ import { useContext } from "react";
 import { EnterKeyContext } from "../../context/EnterKeyContext";
 import { BlockButton, CenteredTextField, ModalHead } from "../../styles";
 
-const FindAccount = ({ nextStep }) => {
-  const { getUsers, setUsers, setLocalName, localKey, setLocalKey } =
+const FindAccount = () => {
+  const { getUsers, setUsers, setLocalName, localKey, setLocalKey, nextStep } =
     useContext(EnterKeyContext);
 
   const innerGetAccount = () => {
