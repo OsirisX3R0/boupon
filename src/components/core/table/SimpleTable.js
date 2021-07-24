@@ -6,7 +6,7 @@ import {
   TableCell,
 } from "@material-ui/core";
 
-const DataTable = ({ columns, rows }) => {
+const SimpleTable = ({ columns, rows }) => {
   const tableHead = columns.map((column, i) => (
     <TableCell key={i}>{column.text}</TableCell>
   ));
@@ -31,4 +31,4 @@ const DataTable = ({ columns, rows }) => {
   );
 };
 
-export default DataTable;
+export default SimpleTable;

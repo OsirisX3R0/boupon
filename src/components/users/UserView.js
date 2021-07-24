@@ -4,7 +4,7 @@ import { Typography } from "@material-ui/core";
 import dayjs from "dayjs";
 
 import { GlobalContext } from "../../context/GlobalContext";
-import DataTable from "../core/table/DataTable";
+import SimpleTable from "../core/table/SimpleTable";
 
 const columns = [
   {
@@ -37,7 +37,7 @@ const UserView = () => {
   }, [key]);
 
   const table = users.length ? (
-    <DataTable columns={columns} rows={users} />
+    <SimpleTable columns={columns} rows={users} />
   ) : null;
 
   return (
