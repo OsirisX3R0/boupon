@@ -1,11 +1,11 @@
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { Typography } from "@material-ui/core";
-import { Delete } from "@material-ui/icons";
 import dayjs from "dayjs";
 
 import { GlobalContext } from "../../context/GlobalContext";
 import SimpleTable from "../core/table/SimpleTable";
+import DeleteButton from "../core/button/DeleteButton";
 
 const columns = [
   {
@@ -41,11 +41,14 @@ const UserView = () => {
     });
   }, [key]);
 
+  const deleteUser = (id) => {
+    axios.delete(`/api/users/delete/${id}`).then((res) => {
+      setUsers((prevUsers) => prevUsers.filter((u) => u.id !== id));
+    });
+  };
+
   const deleteCol = (row) => (
-    <>
-      {row.id}
-      <Delete />
-    </>
+    <DeleteButton color="inherit" onClick={() => deleteUser(row.id)} />
   );
 
   const table = users.length ? (
