@@ -15,14 +15,12 @@ const SimpleTable = ({ columns, rows, ...props }) => {
     ? rows.map((row) => (
         <TableRow key={row["id"]}>
           {columns.map((column, i) => {
-            if (props[column.field]) {
-              return <TableCell>{props[column.field](row)}</TableCell>;
-            }
+            let cellContent = props[column.field]
+              ? props[column.field](row)
+              : row[column.field];
 
             return (
-              <TableCell key={row["id"] + "-" + i}>
-                {row[column.field]}
-              </TableCell>
+              <TableCell key={row["id"] + "-" + i}>{cellContent}</TableCell>
             );
           })}
         </TableRow>
