@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
-import { Step, Stepper } from "@material-ui/core";
+import { Stepper, Step, StepLabel } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { GlobalContext } from "./GlobalContext";
@@ -12,10 +12,13 @@ const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
   },
+  stepper: {
+    display: "none",
+  },
 }));
 
-export const KeyWizard = ({ close, children, ...props }) => {
-  const stepClasses = useStyles();
+export const KeyWizard = ({ close, labels, children, ...props }) => {
+  const classes = useStyles();
   const { setKey, setName } = useContext(GlobalContext);
   const [localKey, setLocalKey] = useState("");
   const [localName, setLocalName] = useState("");
@@ -31,7 +34,17 @@ export const KeyWizard = ({ close, children, ...props }) => {
     return axios.post("/api/users", { key: localKey, name: localName });
   };
 
-  const steps = children.map((step, i) => <Step key={i}>{step}</Step>);
+  const steps = children.map((_, i) => <Step key={i}>{labels[i]}</Step>);
+
+  const stepper =
+    children && children.length ? (
+      <>
+        <Stepper activeStep={active} className={classes.stepper}>
+          {steps}
+        </Stepper>
+        {children[active]}
+      </>
+    ) : null;
 
   const firstStep = () => setActive(0);
   const prevStep = () => setActive((prevActive) => prevActive - 1);
@@ -64,9 +77,7 @@ export const KeyWizard = ({ close, children, ...props }) => {
         height={users.length && !someoneElse ? "260px" : "200px"}
         {...props}
       >
-        <div className={stepClasses.root}>
-          <Stepper activeStep={active}>{steps}</Stepper>
-        </div>
+        {stepper}
       </BaseModal>
     </EnterKeyContext.Provider>
   );

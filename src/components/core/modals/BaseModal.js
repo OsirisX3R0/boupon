@@ -22,7 +22,7 @@ const BaseModal = ({ children, title, height, ...props }) => {
   return (
     <Modal {...props}>
       <div style={modalStyles}>
-        {title ? <Typography variant="h4">{title}</Typography> : null}
+        {title ? <Typography variant="h3">{title}</Typography> : null}
         {children}
       </div>
     </Modal>

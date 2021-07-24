@@ -42,16 +42,16 @@ const Theme = ({ children }) => {
             margin: "1rem 0",
           },
           h2: {
-            fontSize: "2.5rem",
+            fontSize: "2rem",
             fontWeight: 400,
             textAlign: "center",
             margin: "2rem 0",
           },
           h3: {
-            fontSize: "2rem",
+            fontSize: "1.5rem",
             fontWeight: 500,
             textAlign: "center",
-            margin: "2rem 0",
+            margin: ".5rem 0",
           },
         },
         overrides: {
