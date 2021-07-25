@@ -9,6 +9,7 @@ export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
   const [key, setKey] = useLocalStorage("boupon.key");
+  const [id, setId] = useLocalStorage("boupon.id");
   const [name, setName] = useLocalStorage("boupon.name");
   const [colorTheme, setColorTheme] = useLocalStorage(
     "boupon.settings.theme",
@@ -22,6 +23,8 @@ export const GlobalProvider = ({ children }) => {
       value={{
         key,
         setKey,
+        id,
+        setId,
         name,
         setName,
         colorTheme,

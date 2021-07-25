@@ -19,8 +19,9 @@ const useStyles = makeStyles(() => ({
 
 export const KeyWizard = ({ close, labels, children, ...props }) => {
   const classes = useStyles();
-  const { setKey, setName } = useContext(GlobalContext);
+  const { setKey, setName, setId } = useContext(GlobalContext);
   const [localKey, setLocalKey] = useState("");
+  const [localId, setLocalId] = useState("");
   const [localName, setLocalName] = useState("");
   const [users, setUsers] = useState([]);
   const [someoneElse, setSomeoneElse] = useState(false);
@@ -69,8 +70,11 @@ export const KeyWizard = ({ close, labels, children, ...props }) => {
       value={{
         setKey,
         setName,
+        setId,
         localKey,
         setLocalKey,
+        localId,
+        setLocalId,
         localName,
         setLocalName,
         users,

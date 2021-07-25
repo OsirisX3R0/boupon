@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-// import { FixedFooter } from "../../../styles";
 import { useHistory } from "react-router";
 import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
 import { ReceiptOutlined, Person, Settings } from "@material-ui/icons";

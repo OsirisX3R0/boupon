@@ -21,6 +21,7 @@ const SimpleSelect = ({
           let text = item;
           let valueProps = splitValue();
           let textProps = splitText();
+
           valueProps.forEach((p) => {
             value = value[p];
           });
