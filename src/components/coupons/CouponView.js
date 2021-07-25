@@ -1,7 +1,7 @@
+import { Box, Typography } from "@material-ui/core";
 import { useContext } from "react";
 
 import { GlobalContext } from "../../context/GlobalContext";
-import { CouponMainHead } from "../../styles";
 import Coupons from "./Coupons";
 
 const CouponView = () => {
@@ -9,7 +9,9 @@ const CouponView = () => {
 
   return (
     <>
-      <CouponMainHead>Welcome {name}!</CouponMainHead>
+      <Box my={3}>
+        <Typography variant="h3">Welcome {name}!</Typography>
+      </Box>
       <Coupons />
       <Coupons redeemed />
     </>

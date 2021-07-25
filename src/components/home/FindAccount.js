@@ -1,8 +1,7 @@
 import { useContext } from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Box, Button, TextField } from "@material-ui/core";
+
 import { EnterKeyContext } from "../../context/EnterKeyContext";
-import MarginButton from "../core/button/MarginButton";
-import MarginTextField from "../core/input/MarginTextField";
 
 const FindAccount = () => {
   const { getUsers, setUsers, setLocalName, localKey, setLocalKey, nextStep } =
@@ -19,7 +18,7 @@ const FindAccount = () => {
   return (
     <>
       <Typography variant="h3">Enter code</Typography>
-      <MarginTextField
+      <TextField
         label="code"
         centered
         variant="outlined"
@@ -27,15 +26,16 @@ const FindAccount = () => {
         value={localKey}
         onChange={(e) => setLocalKey(e.target.value)}
       />
-      <MarginButton
-        top="1.5rem"
-        color="primary"
-        fullWidth
-        variant="contained"
-        onClick={innerGetAccount}
-      >
-        Find account
-      </MarginButton>
+      <Box mt={3}>
+        <Button
+          color="primary"
+          fullWidth
+          variant="contained"
+          onClick={innerGetAccount}
+        >
+          Find account
+        </Button>
+      </Box>
     </>
   );
 };

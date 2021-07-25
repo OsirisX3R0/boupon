@@ -1,9 +1,7 @@
 import { useContext } from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Box, Button, TextField } from "@material-ui/core";
 
 import { EnterKeyContext } from "../../context/EnterKeyContext";
-import MarginTextField from "../core/input/MarginTextField";
-import MarginButton from "../core/button/MarginButton";
 
 const NewName = () => {
   const {
@@ -27,22 +25,23 @@ const NewName = () => {
   return (
     <>
       <Typography variant="h3">Tell us your name</Typography>
-      <MarginTextField
+      <TextField
         fullWidth
         color="primary"
         variant="outlined"
         value={localName}
         onChange={(e) => setLocalName(e.target.value)}
       />
-      <MarginButton
-        top="1.5rem"
-        fullWidth
-        color="primary"
-        variant="contained"
-        onClick={innerCreateUser}
-      >
-        Add user
-      </MarginButton>
+      <Box mt={3}>
+        <Button
+          fullWidth
+          color="primary"
+          variant="contained"
+          onClick={innerCreateUser}
+        >
+          Add user
+        </Button>
+      </Box>
     </>
   );
 };

@@ -1,9 +1,8 @@
 import { useContext } from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Box, Button } from "@material-ui/core";
 
 import { EnterKeyContext } from "../../context/EnterKeyContext";
 import SimpleSelect from "../core/input/SimpleSelect";
-import MarginButton from "../core/button/MarginButton";
 
 const SelectName = () => {
   const {
@@ -51,24 +50,26 @@ const SelectName = () => {
         value={localId}
         onChange={selectUser}
       />
-      <MarginButton
-        top="1.5rem"
-        fullWidth
-        color="primary"
-        variant="contained"
-        onClick={innerSaveName}
-      >
-        Select User
-      </MarginButton>
-      <MarginButton
-        top="1.5rem"
-        fullWidth
-        color="primary"
-        variant="contained"
-        onClick={innerSomeoneElse}
-      >
-        Someone else
-      </MarginButton>
+      <Box mt={3}>
+        <Button
+          fullWidth
+          color="primary"
+          variant="contained"
+          onClick={innerSaveName}
+        >
+          Select User
+        </Button>
+      </Box>
+      <Box mt={3}>
+        <Button
+          fullWidth
+          color="primary"
+          variant="contained"
+          onClick={innerSomeoneElse}
+        >
+          Someone else
+        </Button>
+      </Box>
     </>
   );
 };
