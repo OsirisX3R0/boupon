@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
-import { Stepper, Step, StepLabel } from "@material-ui/core";
+import { Stepper, Step } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { GlobalContext } from "./GlobalContext";
@@ -51,6 +51,19 @@ export const KeyWizard = ({ close, labels, children, ...props }) => {
   const nextStep = () => setActive((prevActive) => prevActive + 1);
   const lastStep = () => setActive(steps.length - 1);
 
+  const reset = () => {
+    setActive(0);
+    setLocalKey("");
+    setLocalName("");
+    setUsers([]);
+    setSomeoneElse(false);
+  };
+
+  const closeModal = () => {
+    close();
+    reset();
+  };
+
   return (
     <EnterKeyContext.Provider
       value={{
@@ -66,11 +79,11 @@ export const KeyWizard = ({ close, labels, children, ...props }) => {
         setSomeoneElse,
         getUsers,
         createUser,
-        close,
         firstStep,
         prevStep,
         nextStep,
         lastStep,
+        closeModal,
       }}
     >
       <BaseModal

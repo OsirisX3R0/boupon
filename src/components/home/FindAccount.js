@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Typography } from "@material-ui/core";
 import { EnterKeyContext } from "../../context/EnterKeyContext";
-import { BlockButton, CenteredTextField, ModalHead } from "../../styles";
 import MarginButton from "../core/button/MarginButton";
 import MarginTextField from "../core/input/MarginTextField";
 

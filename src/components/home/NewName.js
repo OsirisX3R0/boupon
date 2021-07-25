@@ -1,14 +1,16 @@
 import { useContext } from "react";
+import { Typography } from "@material-ui/core";
 
 import { EnterKeyContext } from "../../context/EnterKeyContext";
-import { BlockButton, CenteredTextField, ModalHead } from "../../styles";
+import MarginTextField from "../core/input/MarginTextField";
+import MarginButton from "../core/button/MarginButton";
 
 const NewName = () => {
   const {
     createUser,
     setKey,
     setName,
-    close,
+    closeModal,
     localKey,
     localName,
     setLocalName,
@@ -18,21 +20,29 @@ const NewName = () => {
     createUser().then(() => {
       setKey(localKey);
       setName(localName);
-      close();
+      closeModal();
     });
   };
 
   return (
     <>
-      <ModalHead>Tell us your name</ModalHead>
-      <CenteredTextField
-        type="text"
+      <Typography variant="h3">Tell us your name</Typography>
+      <MarginTextField
+        fullWidth
+        color="primary"
+        variant="outlined"
         value={localName}
         onChange={(e) => setLocalName(e.target.value)}
       />
-      <BlockButton topMargin="1.5rem" primary onClick={innerCreateUser}>
+      <MarginButton
+        top="1.5rem"
+        fullWidth
+        color="primary"
+        variant="contained"
+        onClick={innerCreateUser}
+      >
         Add user
-      </BlockButton>
+      </MarginButton>
     </>
   );
 };

@@ -1,14 +1,15 @@
 import { useContext } from "react";
+import { Typography } from "@material-ui/core";
 
 import { EnterKeyContext } from "../../context/EnterKeyContext";
-import { BlockButton, ModalHead } from "../../styles";
-import SimpleSelect from "../core/select/SimpleSelect";
+import SimpleSelect from "../core/input/SimpleSelect";
+import MarginButton from "../core/button/MarginButton";
 
 const SelectName = () => {
   const {
     setKey,
     setName,
-    close,
+    closeModal,
     localKey,
     localName,
     setSomeoneElse,
@@ -20,7 +21,7 @@ const SelectName = () => {
   const innerSaveName = () => {
     setKey(localKey);
     setName(localName);
-    close();
+    closeModal();
   };
   const innerSomeoneElse = () => {
     setSomeoneElse(true);
@@ -28,7 +29,7 @@ const SelectName = () => {
   };
   return (
     <>
-      <ModalHead>Who are you?</ModalHead>
+      <Typography variant="h3">Who are you?</Typography>
       <SimpleSelect
         items={users}
         itemText="data.name"
@@ -38,12 +39,24 @@ const SelectName = () => {
         value={localName}
         onChange={(e) => setLocalName(e.target.value)}
       />
-      <BlockButton topMargin="1.5rem" primary onClick={innerSaveName}>
+      <MarginButton
+        top="1.5rem"
+        fullWidth
+        color="primary"
+        variant="contained"
+        onClick={innerSaveName}
+      >
         Select User
-      </BlockButton>
-      <BlockButton topMargin="1.5rem" primary onClick={innerSomeoneElse}>
+      </MarginButton>
+      <MarginButton
+        top="1.5rem"
+        fullWidth
+        color="primary"
+        variant="contained"
+        onClick={innerSomeoneElse}
+      >
         Someone else
-      </BlockButton>
+      </MarginButton>
     </>
   );
 };

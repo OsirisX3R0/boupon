@@ -62,6 +62,12 @@ const Theme = ({ children }) => {
               bottom: 0,
             },
           },
+          MuiInputBase: {
+            input: {
+              fontSize: ".8rem",
+              textAlign: "center",
+            },
+          },
         },
       }),
     [colorTheme, prefersDarkMode]

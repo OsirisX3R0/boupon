@@ -1,8 +1,5 @@
 import { Select, MenuItem } from "@material-ui/core";
 
-import Option from "./Option";
-import { SelectBox, CenteredSelectBox } from "../../../styles";
-
 const SimpleSelect = ({
   items,
   itemText,

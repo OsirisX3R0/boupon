@@ -29,16 +29,11 @@ const Home = () => {
       >
         I have a key
       </Button>
-      <EnterName
-        open={showEnterName}
-        onClose={() => setShowEnterName(false)}
-        // contentLabel="Tell us your name"
-      />
+      <EnterName open={showEnterName} onClose={() => setShowEnterName(false)} />
       <EnterKey
         open={showEnterKey}
         onClose={() => setShowEnterKey(false)}
         close={() => setShowEnterKey(false)}
-        // contentLabel="Enter key"
       />
     </Container>
   );
