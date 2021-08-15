@@ -53,6 +53,18 @@ const Theme = ({ children }) => {
             textAlign: "center",
             margin: ".5rem 0",
           },
+          h4: {
+            fontSize: "1.25rem",
+            fontWeight: 500,
+            textAlign: "center",
+            margin: ".5rem 0",
+          },
+          h5: {
+            fontSize: "1.15rem",
+            fontWeight: 500,
+            textAlign: "center",
+            margin: ".5rem 0",
+          },
         },
         overrides: {
           MuiBottomNavigation: {

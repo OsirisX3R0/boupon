@@ -1,13 +1,24 @@
+import { Container, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
 import { useContext } from "react";
 
 import { CouponContext } from "../../context/CouponContext";
-import { CouponContainer, NoCoupons, OldHead } from "../../styles";
 import Coupon from "./Coupon";
 
+const useStyles = makeStyles({
+  none: {
+    color: "#bbb",
+    textAlign: "center",
+  },
+});
+
 const Coupons = ({ redeemed }) => {
+  const classes = useStyles();
   const { coupons } = useContext(CouponContext);
 
-  const oldHead = redeemed && <OldHead>Redeemed Coupons</OldHead>;
+  const oldHead = redeemed && (
+    <Typography variant="h5">Redeemed Coupons</Typography>
+  );
 
   const couponList =
     coupons &&
@@ -18,15 +29,17 @@ const Coupons = ({ redeemed }) => {
 
   const noCoupons = ((!redeemed && coupons.every((c) => c.redeemed)) ||
     (redeemed && coupons.every((c) => !c.redeemed))) && (
-    <NoCoupons>No Coupons</NoCoupons>
+    <Typography className={classes.none} variant="subtitle1">
+      No Coupons
+    </Typography>
   );
 
   return (
-    <CouponContainer>
+    <Container>
       {oldHead}
       {couponList}
       {noCoupons}
-    </CouponContainer>
+    </Container>
   );
 };
 
