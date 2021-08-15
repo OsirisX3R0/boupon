@@ -12,30 +12,46 @@ import { CouponContext } from "../../context/CouponContext";
 
 const useStyles = makeStyles({
   root: {
-    borderStyle: "dashed",
+    border: "2px dashed #53a318",
+  },
+  redeemed: {
+    border: "2px dashed #666",
+    color: "#666",
+  },
+  header: {
+    textAlign: "left",
   },
 });
 
-const Coupon = ({ coupon }) => {
+const Coupon = ({ coupon, redeemed }) => {
   const classes = useStyles();
   const { redeem } = useContext(CouponContext);
 
+  const actions = redeemed ? null : (
+    <CardActions>
+      <Button
+        size="small"
+        color="primary"
+        onClick={() => redeem(coupon.id)}
+        redeemed={coupon.redeemed}
+      >
+        &#128504; Redeem
+      </Button>
+    </CardActions>
+  );
+
   return (
-    <Card className={classes.root} variant="outlined">
+    <Card
+      className={redeemed ? classes.redeemed : classes.root}
+      variant="outlined"
+    >
       <CardContent>
-        <Typography variant="h4">{coupon.title}</Typography>
+        <Typography className={classes.header} variant="h4">
+          {coupon.title}
+        </Typography>
         <Typography variant="body2">{coupon.text}</Typography>
       </CardContent>
-      <CardActions>
-        <Button
-          size="small"
-          color="primary"
-          onClick={() => redeem(coupon.id)}
-          redeemed={coupon.redeemed}
-        >
-          &#128504; Redeem
-        </Button>
-      </CardActions>
+      {actions}
     </Card>
   );
 };
