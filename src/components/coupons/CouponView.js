@@ -9,11 +9,13 @@ const CouponView = () => {
 
   const coupons = [
     {
+      id: 1,
       title: "Foot rub",
       text: "Good for one (1) foot rub",
       redeemed: false,
     },
     {
+      id: 2,
       title: "Back rub",
       text: "Good for one (1) back rub",
       redeemed: true,
@@ -25,8 +27,8 @@ const CouponView = () => {
       <Box my={3}>
         <Typography variant="h3">Welcome {name}!</Typography>
       </Box>
-      <Coupons coupons={coupons} />
-      <Coupons coupons={coupons} redeemed />
+      <Coupons coupons={coupons} redeemed={false} />
+      <Coupons coupons={coupons} redeemed={true} />
     </>
   );
 };

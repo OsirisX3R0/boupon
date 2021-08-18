@@ -12,7 +12,7 @@ import { CouponContext } from "../../context/CouponContext";
 
 const useStyles = makeStyles({
   root: {
-    border: "2px dashed #53a318",
+    border: "3px dashed #297AA3",
   },
   redeemed: {
     border: "2px dashed #666",

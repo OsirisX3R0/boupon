@@ -18,20 +18,21 @@ const Coupons = ({ coupons, redeemed }) => {
   );
 
   const couponList =
-    coupons &&
-    coupons.length &&
-    coupons
-      .filter((c) => (redeemed ? c.redeemed : !c.redeemed))
-      .map((coupon) => (
-        <Coupon coupon={coupon} key={coupon.id} redeemed={redeemed} />
-      ));
+    coupons && coupons.length
+      ? coupons
+          .filter((c) => (redeemed ? c.redeemed : !c.redeemed))
+          .map((coupon) => (
+            <Coupon coupon={coupon} key={coupon.id} redeemed={redeemed} />
+          ))
+      : null;
 
-  const noCoupons = ((!redeemed && coupons.every((c) => c.redeemed)) ||
-    (redeemed && coupons.every((c) => !c.redeemed))) && (
-    <Typography className={classes.none} variant="subtitle1">
-      No Coupons
-    </Typography>
-  );
+  const noCoupons =
+    (!redeemed && coupons.every((c) => c.redeemed)) ||
+    (redeemed && coupons.every((c) => !c.redeemed)) ? (
+      <Typography className={classes.none} variant="subtitle1">
+        No Coupons
+      </Typography>
+    ) : null;
 
   return (
     <Container>
