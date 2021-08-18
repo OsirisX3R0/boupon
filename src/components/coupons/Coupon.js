@@ -13,18 +13,20 @@ import { CouponContext } from "../../context/CouponContext";
 const useStyles = makeStyles({
   root: {
     border: "3px dashed #297AA3",
+    marginBottom: (props) => (props.last ? "0" : "1rem"),
   },
   redeemed: {
     border: "2px dashed #666",
     color: "#666",
+    marginBottom: (props) => (props.last ? "0" : "1rem"),
   },
   header: {
     textAlign: "left",
   },
 });
 
-const Coupon = ({ coupon, redeemed }) => {
-  const classes = useStyles();
+const Coupon = ({ coupon, redeemed, last }) => {
+  const classes = useStyles({ last });
   const { redeem } = useContext(CouponContext);
 
   const actions = redeemed ? null : (

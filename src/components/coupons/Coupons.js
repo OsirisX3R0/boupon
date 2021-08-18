@@ -1,6 +1,8 @@
 import { Container, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+import { useContext } from "react";
 
+import { CouponContext } from "../../context/CouponContext";
 import Coupon from "./Coupon";
 
 const useStyles = makeStyles({
@@ -10,9 +12,9 @@ const useStyles = makeStyles({
   },
 });
 
-const Coupons = ({ coupons, redeemed }) => {
+const Coupons = ({ redeemed }) => {
   const classes = useStyles();
-
+  const { coupons } = useContext(CouponContext);
   const oldHead = redeemed && (
     <Typography variant="h5">Redeemed Coupons</Typography>
   );
@@ -21,8 +23,13 @@ const Coupons = ({ coupons, redeemed }) => {
     coupons && coupons.length
       ? coupons
           .filter((c) => (redeemed ? c.redeemed : !c.redeemed))
-          .map((coupon) => (
-            <Coupon coupon={coupon} key={coupon.id} redeemed={redeemed} />
+          .map((coupon, i) => (
+            <Coupon
+              coupon={coupon}
+              key={coupon.id}
+              redeemed={redeemed}
+              last={i === coupons.length - 1}
+            />
           ))
       : null;
 
