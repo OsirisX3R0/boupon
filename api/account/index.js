@@ -1,18 +1,15 @@
-const faunadb = require("faunadb");
+const faunaAPI = require("../../core/fauna");
 const { v4: uuid } = require("uuid");
-
-let client = new faunadb.Client({ secret: process.env.FAUNA_ADMIN_KEY });
-let q = faunadb.query;
 
 module.exports = (req, res) => {
   const { name } = req.body;
   let key = uuid();
 
-  client
-    .query(q.Create(q.Collection("accounts"), { data: { key } }))
+  faunaAPI
+    .create("accounts", { key })
     .then(() => {
-      client
-        .query(q.Create(q.Collection("users"), { data: { name, key } }))
+      faunaAPI
+        .create("usres", { name, key })
         .then(() => {
           res.json({ key, name });
         })

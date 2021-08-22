@@ -1,18 +1,13 @@
-const faunadb = require("faunadb");
-
-let client = new faunadb.Client({ secret: process.env.FAUNA_ADMIN_KEY });
-let q = faunadb.query;
+const faunaAPI = require("../../core/fauna");
 
 module.exports = (req, res) => {
   const { key } = req.query;
 
-  client
-    .query(q.Paginate(q.Match(q.Index("users_by_key"), key)))
+  faunaAPI
+    .getByIndex("users_by_key", key)
     .then((indexResp) => {
       Promise.all(
-        indexResp.data.map((ref) =>
-          client.query(q.Get(q.Ref(q.Collection("users"), ref.id)))
-        )
+        indexResp.data.map((ref) => faunaAPI.getByRef("users", ref))
       ).then((response) => {
         return res.json(response);
       });

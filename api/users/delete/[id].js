@@ -1,13 +1,10 @@
-const faunadb = require("faunadb");
-
-let client = new faunadb.Client({ secret: process.env.FAUNA_ADMIN_KEY });
-let q = faunadb.query;
+const faunaAPI = require("../../../core/fauna");
 
 module.exports = (req, res) => {
   const { id } = req.query;
 
-  client
-    .query(q.Delete(q.Ref(q.Collection("users"), id)))
+  faunaAPI
+    .deleteById("users", id)
     .then(() => {
       return res.json({ id });
     })
