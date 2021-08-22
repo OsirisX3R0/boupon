@@ -1,8 +1,6 @@
 // import axios from "axios";
 import { createContext, useState } from "react";
 
-import useLocalStorage from "../hooks/useLocalStorage";
-
 export const CouponContext = createContext();
 
 export const CouponProvider = ({ children }) => {
