@@ -1,6 +1,8 @@
 class Collection {
-  constructor(name) {
+  constructor(name, client, query) {
     this.name = name;
+    this.client = client;
+    this.query = query;
   }
 
   // CREATE
@@ -13,7 +15,7 @@ class Collection {
 
   // READ
 
-  getByid(id) {
+  getById(id) {
     return this.client.query(
       this.query.Get(this.query.Ref(this.query.Collection(this.name), id))
     );
@@ -21,7 +23,13 @@ class Collection {
 
   // UPDATE
 
-  update(id) {}
+  update(id, data) {
+    return this.client.query(
+      this.query.Update(this.query.Ref(this.query.Collection(this.name), id), {
+        data,
+      })
+    );
+  }
 
   // DELETE
 
