@@ -1,12 +1,10 @@
-const faunaAPI = require("../../../core/fauna");
+const faunaAPI = require("../../core/fauna");
 
 module.exports = (req, res) => {
-  const { id } = req.query;
-
-  faunaAPI.users
-    .deleteById(id)
+  faunaAPI.coupons
+    .create(req.body)
     .then(() => {
-      return res.json({ id });
+      res.json(req.body);
     })
     .catch(({ name, message, description }) => {
       return res.json({ name, message, description });

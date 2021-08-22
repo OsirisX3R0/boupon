@@ -1,10 +1,18 @@
 const faunadb = require("faunadb");
 
+const Collection = require("./collection");
+
 class FaunaAPI {
-  constructor(secret) {
+  constructor(secret, collections) {
     this.client = new faunadb.Client({ secret });
     this.query = faunadb.query;
+
+    collections.forEach(
+      (collection) => (this[collection] = new Collection(collection))
+    );
   }
+
+  // CREATE
 
   create(collection, data) {
     return this.client.query(
@@ -12,9 +20,11 @@ class FaunaAPI {
     );
   }
 
-  getByRef(collection, ref) {
+  // READ
+
+  getByid(collection, id) {
     return this.client.query(
-      this.query.Get(this.query.Ref(this.query.Collection(collection), ref.id))
+      this.query.Get(this.query.Ref(this.query.Collection(collection), id))
     );
   }
 
@@ -24,6 +34,12 @@ class FaunaAPI {
     );
   }
 
+  // UPDATE
+
+  update(collection, id) {}
+
+  // DELETE
+
   deleteById(collection, id) {
     return this.client.query(
       this.query.Delete(this.query.Ref(this.query.Collection(collection), id))
@@ -31,6 +47,10 @@ class FaunaAPI {
   }
 }
 
-const faunaAPI = new FaunaAPI(process.env.FAUNA_ADMIN_KEY);
+const faunaAPI = new FaunaAPI(process.env.FAUNA_ADMIN_KEY, [
+  "accounts",
+  "coupons",
+  "users",
+]);
 
 module.exports = faunaAPI;

@@ -7,7 +7,7 @@ module.exports = (req, res) => {
     .getByIndex("coupons_by_key", key)
     .then((indexResp) => {
       Promise.all(
-        indexResp.data.map((ref) => faunaAPI.getByRef("coupons", ref))
+        indexResp.data.map((ref) => faunaAPI.coupons.getByRef(ref.id))
       ).then((response) => {
         return res.json(response);
       });

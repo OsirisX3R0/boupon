@@ -1,8 +1,8 @@
 const faunaAPI = require("../../core/fauna");
 
 module.exports = (req, res) => {
-  faunaAPI
-    .create("users", req.body)
+  faunaAPI.users
+    .create(req.body)
     .then(() => {
       res.json(req.body);
     })

@@ -5,11 +5,11 @@ module.exports = (req, res) => {
   const { name } = req.body;
   let key = uuid();
 
-  faunaAPI
-    .create("accounts", { key })
+  faunaAPI.accounts
+    .create({ key })
     .then(() => {
-      faunaAPI
-        .create("usres", { name, key })
+      faunaAPI.users
+        .create({ name, key })
         .then(() => {
           res.json({ key, name });
         })

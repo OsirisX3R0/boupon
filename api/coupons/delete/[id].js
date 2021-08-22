@@ -3,7 +3,7 @@ const faunaAPI = require("../../../core/fauna");
 module.exports = (req, res) => {
   const { id } = req.query;
 
-  faunaAPI.users
+  faunaAPI.coupons
     .deleteById(id)
     .then(() => {
       return res.json({ id });
