@@ -31,12 +31,7 @@ const Coupon = ({ coupon, redeemed, last }) => {
 
   const actions = redeemed ? null : (
     <CardActions>
-      <Button
-        size="small"
-        color="primary"
-        onClick={() => redeem(coupon.id)}
-        redeemed={coupon.redeemed}
-      >
+      <Button size="small" color="primary" onClick={() => redeem(coupon.id)}>
         &#128504; Redeem
       </Button>
     </CardActions>
