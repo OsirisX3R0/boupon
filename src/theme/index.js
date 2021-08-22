@@ -70,7 +70,7 @@ const Theme = ({ children }) => {
           MuiBottomNavigation: {
             root: {
               width: "100%",
-              position: "fixed",
+              position: "sticky",
               bottom: 0,
             },
           },
