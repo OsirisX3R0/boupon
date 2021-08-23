@@ -6,6 +6,9 @@ import { CouponContext } from "../../context/CouponContext";
 import Coupon from "./Coupon";
 
 const useStyles = makeStyles({
+  root: {
+    marginBottom: (props) => (props.redeemed ? "72px" : ""),
+  },
   none: {
     color: "#bbb",
     textAlign: "center",
@@ -13,7 +16,7 @@ const useStyles = makeStyles({
 });
 
 const Coupons = ({ redeemed }) => {
-  const classes = useStyles();
+  const classes = useStyles({ redeemed });
   const { coupons } = useContext(CouponContext);
   const oldHead = redeemed && (
     <Typography variant="h5">Redeemed Coupons</Typography>
@@ -42,7 +45,7 @@ const Coupons = ({ redeemed }) => {
     ) : null;
 
   return (
-    <Container>
+    <Container className={classes.root}>
       {oldHead}
       {couponList}
       {noCoupons}
