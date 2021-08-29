@@ -30,10 +30,8 @@ const UserView = () => {
     axios.get(`/api/users/${key}`).then((res) => {
       let accountUsers = res.data.map((user) => {
         return {
-          id: user.ref["@ref"].id,
+          ...user,
           ts: dayjs(user.ts / 1000).format("MM/DD/YYYY h:mm:ssa"),
-          name: user.data.name,
-          key: user.data.key,
         };
       });
 
