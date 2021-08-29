@@ -1800,10 +1800,10 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@osirisx3r0/faunadb-node-api@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@osirisx3r0/faunadb-node-api/-/faunadb-node-api-0.6.0.tgz#f9ff7fa0d328d5105b6e085f26fa89b963c95d81"
-  integrity sha512-YTnZW/GQp1SqTsyZHPq8H7mXFW7sh7wL5dC9Nbm/epb8KK2hUtYnHxwk8Iil4n+3KVNa27QvDU4sW5lPrKUHQA==
+"@osirisx3r0/faunadb-node-api@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@osirisx3r0/faunadb-node-api/-/faunadb-node-api-0.6.2.tgz#f2b6ccad86d558ba18e43d519a485c9e50e18f76"
+  integrity sha512-DAG/rb4v47u29CCgKA3zHaQPtwEHs9+ILQJEbxGbd/NljnH+D2+fgEL4lcAhXy827EUa2hK7kcVcM/0Mj+b5mQ==
   dependencies:
     faunadb "^4.3.0"
 
