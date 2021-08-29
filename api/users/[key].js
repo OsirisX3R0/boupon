@@ -1,10 +1,11 @@
 const faunaAPI = require("../../core/fauna");
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
+  await faunaAPI.connect();
   const { key } = req.query;
 
   faunaAPI
-    .getByIndex("users_by_key", key)
+    .users_by_key(key)
     .then((indexResp) => {
       Promise.all(
         indexResp.data.map((ref) => faunaAPI.users.getById(ref.id))

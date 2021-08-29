@@ -1,7 +1,8 @@
 const faunaAPI = require("../../core/fauna");
 const { v4: uuid } = require("uuid");
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
+  await faunaAPI.connect();
   const { name } = req.body;
   let key = uuid();
 

@@ -1,6 +1,7 @@
 const faunaAPI = require("../../../core/fauna");
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
+  await faunaAPI.connect();
   const { id } = req.query;
 
   faunaAPI.coupons
