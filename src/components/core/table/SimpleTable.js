@@ -7,9 +7,13 @@ import {
 } from "@material-ui/core";
 
 const SimpleTable = ({ columns, rows, ...props }) => {
-  const tableHead = columns.map((column, i) => (
-    <TableCell key={i}>{column.text}</TableCell>
-  ));
+  const tableHead = (
+    <TableRow>
+      {columns.map((column) => (
+        <TableCell key={column.field}>{column.text}</TableCell>
+      ))}
+    </TableRow>
+  );
 
   const tableRows = rows.length
     ? rows.map((row) => (
@@ -29,9 +33,7 @@ const SimpleTable = ({ columns, rows, ...props }) => {
 
   return (
     <Table>
-      <TableHead>
-        <TableRow>{tableHead}</TableRow>
-      </TableHead>
+      <TableHead>{tableHead}</TableHead>
       <TableBody>{tableRows}</TableBody>
     </Table>
   );

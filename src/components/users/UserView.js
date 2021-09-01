@@ -13,7 +13,7 @@ const columns = [
     text: "Name",
   },
   {
-    field: "ts",
+    field: "timestamp",
     text: "Last Updated",
   },
   {
@@ -31,7 +31,7 @@ const UserView = () => {
       let accountUsers = res.data.map((user) => {
         return {
           ...user,
-          ts: dayjs(user.ts / 1000).format("MM/DD/YYYY h:mm:ssa"),
+          timestamp: dayjs(user.timestamp / 1000).format("MM/DD/YYYY h:mm:ssa"),
         };
       });
 
