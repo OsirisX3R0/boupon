@@ -1,11 +1,12 @@
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
-import { Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import dayjs from "dayjs";
 
 import { GlobalContext } from "../../context/GlobalContext";
 import SimpleTable from "../core/table/SimpleTable";
 import DeleteButton from "../core/button/DeleteButton";
+import ShareKey from "./ShareKey";
 
 const columns = [
   {
@@ -25,6 +26,7 @@ const columns = [
 const UserView = () => {
   const { key } = useContext(GlobalContext);
   const [users, setUsers] = useState([]);
+  const [showShare, setShowShare] = useState(false);
 
   useEffect(() => {
     axios.get(`/api/users/${key}`).then((res) => {
@@ -56,7 +58,15 @@ const UserView = () => {
   return (
     <>
       <Typography variant="h2">Users</Typography>
+      <Button color="primary" onClick={() => setShowShare(true)}>
+        Reveal Code
+      </Button>
       {table}
+      <ShareKey
+        height="365px"
+        open={showShare}
+        onClose={() => setShowShare(false)}
+      />
     </>
   );
 };
