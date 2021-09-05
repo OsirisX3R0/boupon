@@ -1,18 +1,23 @@
 import { useState, useContext } from "react";
 import { useHistory } from "react-router";
 import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
-import { ReceiptOutlined, Person, Settings } from "@material-ui/icons";
+import {
+  ReceiptOutlined,
+  Person,
+  Settings,
+  ExitToApp,
+} from "@material-ui/icons";
 
 import { GlobalContext } from "../../../context/GlobalContext";
 
 const FooterNav = () => {
   const history = useHistory();
-  const { key, name } = useContext(GlobalContext);
+  const { key, name, logout } = useContext(GlobalContext);
   const [value, setValue] = useState(
     history.location.pathname.replace("/", "")
   );
 
-  const onChange = (event, newValue) => {
+  const onChange = (_, newValue) => {
     let route = `/${newValue}`;
     setValue(newValue);
     history.push(route);
@@ -31,6 +36,11 @@ const FooterNav = () => {
           label="Settings"
           value="settings"
           icon={<Settings />}
+        />
+        <BottomNavigationAction
+          label="Logout"
+          icon={<ExitToApp />}
+          onClick={logout}
         />
       </BottomNavigation>
     ) : null;

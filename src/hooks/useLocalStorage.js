@@ -20,7 +20,11 @@ const useLocalStorage = (storageKey, initialValue = null) => {
     setValue(newValue);
   };
 
-  return [value, setStorage];
+  const removeItem = () => {
+    localStorage.removeItem(key.current);
+  };
+
+  return [value, setStorage, removeItem];
 };
 
 export default useLocalStorage;

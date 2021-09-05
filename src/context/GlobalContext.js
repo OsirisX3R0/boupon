@@ -9,9 +9,9 @@ export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
   const history = useHistory();
-  const [key, setKey] = useLocalStorage("boupon.key");
-  const [id, setId] = useLocalStorage("boupon.id");
-  const [name, setName] = useLocalStorage("boupon.name");
+  const [key, setKey, removeKey] = useLocalStorage("boupon.key");
+  const [id, setId, removeId] = useLocalStorage("boupon.id");
+  const [name, setName, removeName] = useLocalStorage("boupon.name");
   const [colorTheme, setColorTheme] = useLocalStorage(
     "boupon.settings.theme",
     "default"
@@ -28,6 +28,13 @@ export const GlobalProvider = ({ children }) => {
     }
   }, [history, key, name]);
 
+  const logout = () => {
+    removeKey();
+    removeId();
+    removeName();
+    history.go(0);
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -40,6 +47,7 @@ export const GlobalProvider = ({ children }) => {
         colorTheme,
         setColorTheme,
         prefersDarkMode,
+        logout,
       }}
     >
       <Theme>{children}</Theme>
