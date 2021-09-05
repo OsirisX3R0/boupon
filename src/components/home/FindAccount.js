@@ -1,16 +1,21 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Typography, Box, Button, TextField } from "@material-ui/core";
 
 import { EnterKeyContext } from "../../context/EnterKeyContext";
 
-const FindAccount = () => {
+const FindAccount = ({ queryKey }) => {
   const { getUsers, setUsers, setLocalName, localKey, setLocalKey, nextStep } =
     useContext(EnterKeyContext);
 
+  useEffect(() => {
+    setLocalKey(queryKey);
+  }, []);
+
   const innerGetAccount = () => {
+    if (queryKey) setLocalKey(queryKey);
     getUsers().then((res) => {
       setUsers(res.data);
-      setLocalName(res.data[0].data.name);
+      setLocalName(res.data[0].name);
       nextStep();
     });
   };
@@ -23,7 +28,7 @@ const FindAccount = () => {
         centered
         variant="outlined"
         fullWidth
-        value={localKey}
+        value={localKey || queryKey}
         onChange={(e) => setLocalKey(e.target.value)}
       />
       <Box mt={3}>

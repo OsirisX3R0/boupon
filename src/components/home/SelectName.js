@@ -42,8 +42,8 @@ const SelectName = () => {
       <Typography variant="h3">Who are you?</Typography>
       <SimpleSelect
         items={users}
-        itemValue="ref.@ref.id"
-        itemText="data.name"
+        itemValue="id"
+        itemText="name"
         fullWidth
         variant="outlined"
         centered

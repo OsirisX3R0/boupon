@@ -4,10 +4,10 @@ import SelectName from "./SelectName";
 import NewName from "./NewName";
 
 const labels = ["Enter code", "Who are you?", "Tell us your name"];
-const EnterKey = (props) => {
+const EnterKey = ({ queryKey, ...props }) => {
   return (
     <KeyWizard labels={labels} {...props}>
-      <FindAccount />
+      <FindAccount queryKey={queryKey} />
       <SelectName />
       <NewName />
     </KeyWizard>

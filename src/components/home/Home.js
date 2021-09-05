@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import EnterName from "./EnterName";
 import EnterKey from "./EnterKey";
 import { Box, Button, Container, Typography } from "@material-ui/core";
+import useQueryString from "../../hooks/useQueryString";
 
 const Home = () => {
   const [showEnterKey, setShowEnterKey] = useState(false);
   const [showEnterName, setShowEnterName] = useState(false);
+  const { key } = useQueryString();
 
   return (
     <Container>
@@ -31,7 +33,8 @@ const Home = () => {
       </Button>
       <EnterName open={showEnterName} onClose={() => setShowEnterName(false)} />
       <EnterKey
-        open={showEnterKey}
+        queryKey={key}
+        open={showEnterKey || key}
         onClose={() => setShowEnterKey(false)}
         close={() => setShowEnterKey(false)}
       />
