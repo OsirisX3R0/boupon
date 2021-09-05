@@ -33,7 +33,10 @@ const ShareKey = (props) => {
         Scan your code
       </Box>
       <Box display="flex" justifyContent="center" mb={3}>
-        <QRCode value={`localhost:3000?key=${key}`} theme={colorTheme} />
+        <QRCode
+          value={`${window.location.origin}?key=${key}`}
+          theme={colorTheme}
+        />
       </Box>
       <Box
         display="flex"
