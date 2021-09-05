@@ -9,30 +9,44 @@ import QRCode from "./QRCode";
 const ShareKey = (props) => {
   const { key, colorTheme } = useContext(GlobalContext);
   const [copied, copy] = useCopyToClipboard(key);
-  let border = "1px solid #666";
-  useEffect(() => {
-    if (copied) {
-      border = "1px solid #53a318";
-    }
-  }, [copied]);
+
+  const copyText = (
+    <Box
+      display="flex"
+      justifyContent="center"
+      color={copied ? "#53a318" : "#f5f5f5"}
+      mb={3}
+    >
+      {copied ? "Copied!" : "Click to copy the code below"}
+    </Box>
+  );
 
   return (
     <BaseModal {...props}>
-      <Box display="flex" justifyContent="center" mb={3}>
+      <Box
+        display="flex"
+        justifyContent="center"
+        borderBottom="1px solid #666"
+        mb={3}
+        pb={1}
+      >
         Scan your code
       </Box>
       <Box display="flex" justifyContent="center" mb={3}>
         <QRCode value={key} theme={colorTheme} />
       </Box>
-      <Box display="flex" justifyContent="center" mb={3}>
+      <Box
+        display="flex"
+        justifyContent="center"
+        borderTop="1px solid #666"
+        mb={3}
+        pt={1}
+      >
         OR
       </Box>
-      <Box display="flex" justifyContent="center" mb={3}>
-        Click to copy the code below
-      </Box>
+      {copyText}
       <Box
-        backgroundColor="#111"
-        border={border}
+        border={`1px solid ${copied ? "#53a318" : "#666"}`}
         borderRadius="5px"
         p={1}
         display="flex"

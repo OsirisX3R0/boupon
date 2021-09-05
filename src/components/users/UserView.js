@@ -63,7 +63,7 @@ const UserView = () => {
       </Button>
       {table}
       <ShareKey
-        height="365px"
+        height="375px"
         open={showShare}
         onClose={() => setShowShare(false)}
       />
