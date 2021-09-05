@@ -25,7 +25,7 @@ const FindAccount = ({ queryKey }) => {
       <Typography variant="h3">Enter code</Typography>
       <TextField
         label="code"
-        centered
+        centered={"true"}
         variant="outlined"
         fullWidth
         value={localKey || queryKey}

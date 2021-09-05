@@ -21,7 +21,7 @@ const SelectName = () => {
   } = useContext(EnterKeyContext);
 
   const selectUser = (e) => {
-    let name = users.find((u) => u.ref["@ref"].id === e.target.value).data.name;
+    let name = users.find((u) => u.id === e.target.value).name;
 
     setLocalId(e.target.value);
     setLocalName(name);
@@ -46,7 +46,7 @@ const SelectName = () => {
         itemText="name"
         fullWidth
         variant="outlined"
-        centered
+        centered={"true"}
         value={localId}
         onChange={selectUser}
       />

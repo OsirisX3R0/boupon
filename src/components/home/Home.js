@@ -34,7 +34,7 @@ const Home = () => {
       <EnterName open={showEnterName} onClose={() => setShowEnterName(false)} />
       <EnterKey
         queryKey={key}
-        open={showEnterKey || key}
+        open={showEnterKey || !!key}
         onClose={() => setShowEnterKey(false)}
         close={() => setShowEnterKey(false)}
       />
