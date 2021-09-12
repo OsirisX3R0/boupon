@@ -1,4 +1,4 @@
-const faunaAPI = require("../../core/fauna");
+const faunaAPI = require("../../../core/fauna");
 
 module.exports = async (req, res) => {
   try {
