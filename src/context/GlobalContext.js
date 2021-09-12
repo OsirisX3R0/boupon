@@ -21,12 +21,12 @@ export const GlobalProvider = ({ children }) => {
   useEffect(() => {
     switch (history.location.pathname) {
       case "/":
-        if (key && name) history.push("/coupons");
+        if (key && name && id) history.push("/coupons");
         break;
       default:
-        if (!key || !name) history.push("/");
+        if (!key || !name || !id) history.push("/");
     }
-  }, [history, key, name]);
+  }, [history, key, name, id]);
 
   const logout = () => {
     removeKey();
