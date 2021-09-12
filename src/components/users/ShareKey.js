@@ -1,5 +1,5 @@
 import { Box } from "@material-ui/core";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 import { GlobalContext } from "../../context/GlobalContext";
 import useCopyToClipboard from "../../hooks/useCopyToClipboard";

@@ -9,7 +9,7 @@ const FindAccount = ({ queryKey }) => {
 
   useEffect(() => {
     setLocalKey(queryKey);
-  }, []);
+  }, [setLocalKey, queryKey]);
 
   const innerGetAccount = () => {
     if (queryKey) setLocalKey(queryKey);
