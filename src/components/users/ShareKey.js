@@ -7,7 +7,7 @@ import BaseModal from "../core/modals/BaseModal";
 import QRCode from "./QRCode";
 
 const ShareKey = (props) => {
-  const { key, colorTheme } = useContext(GlobalContext);
+  const { key } = useContext(GlobalContext);
   const [copied, copy] = useCopyToClipboard(key);
 
   const copyText = (
@@ -33,10 +33,7 @@ const ShareKey = (props) => {
         Scan your code
       </Box>
       <Box display="flex" justifyContent="center" mb={3}>
-        <QRCode
-          value={`${window.location.origin}?key=${key}`}
-          theme={colorTheme}
-        />
+        <QRCode value={`${window.location.origin}?key=${key}`} />
       </Box>
       <Box
         display="flex"
