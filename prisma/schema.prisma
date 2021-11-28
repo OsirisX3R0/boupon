@@ -1,0 +1,40 @@
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  engineType = "binary"
+}
+
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "binary"
+}
+
+model accounts {
+  id         BigInt   @id @default(autoincrement())
+  key        String   @unique @db.VarChar(25)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @updatedAt
+  users      users[]
+}
+
+model users {
+  id              BigInt    @id @default(autoincrement())
+  account_key     String    @unique @db.VarChar(25)
+  created_at      DateTime  @default(now()) @db.Timestamptz(6)
+  updated_at      DateTime  @updatedAt
+  account         accounts  @relation(fields: [account_key], references: [key])
+  created_coupons coupons[] @relation("createdBy")
+  coupons         coupons[] @relation("createdFor")
+}
+
+model coupons {
+  id             BigInt   @id @default(autoincrement())
+  title          String   @db.VarChar(50)
+  text           String   @db.VarChar(140)
+  created_at     DateTime @default(now()) @db.Timestamptz(6)
+  updated_at     DateTime @updatedAt
+  created_by_id  BigInt
+  created_by     users    @relation("createdBy", fields: [created_by_id], references: [id])
+  created_for_id BigInt
+  created_for    users    @relation("createdFor", fields: [created_for_id], references: [id])
+}
