@@ -4,6 +4,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import useLocalStorage from "../hooks/useLocalStorage";
 import Theme from "../theme";
 import { useHistory } from "react-router";
+/// REACT ROUTER REFACTOR HERE
 
 export const GlobalContext = createContext();
 

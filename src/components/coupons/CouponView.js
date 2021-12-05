@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Route, useRouteMatch } from "react-router";
 import { Link } from "react-router-dom";
+/// REACT ROUTER REFACTOR HERE
 import { Box, Button, Typography } from "@material-ui/core";
 
 import { GlobalContext } from "../../context/GlobalContext";

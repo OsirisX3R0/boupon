@@ -28,6 +28,7 @@
   },
   "scripts": {
     "start": "next start",
+    "dev": "next dev",
     "vercel": "vercel dev",
     "build": "next build",
     "test": "react-scripts test",
