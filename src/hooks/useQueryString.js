@@ -1,13 +1,13 @@
 import { useRef } from "react";
 import qs from "query-string";
-import { useLocation } from "react-router";
+import { useRouter } from "next/router";
 /// REACT ROUTER REFACTOR HERE
 
 const useQueryString = () => {
-  let location = useLocation();
-  let query = useRef(location.search);
+  let router = useRouter();
+  let query = useRef(router.query);
 
-  return qs.parse(query.current);
+  return query.current;
 };
 
 export default useQueryString;
