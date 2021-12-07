@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useHistory } from "react-router";
+import { useRouter } from "next/router";
 /// REACT ROUTER REFACTOR HERE
 import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
 import {
@@ -12,16 +12,14 @@ import {
 import { GlobalContext } from "../../../context/GlobalContext";
 
 const FooterNav = () => {
-  const history = useHistory();
+  const router = useRouter();
   const { key, name, logout } = useContext(GlobalContext);
-  const [value, setValue] = useState(
-    history.location.pathname.replace("/", "")
-  );
+  const [value, setValue] = useState(router.pathname.replace("/", ""));
 
   const onChange = (_, newValue) => {
     let route = `/${newValue}`;
     setValue(newValue);
-    history.push(route);
+    router.push(route);
   };
 
   const navigation =

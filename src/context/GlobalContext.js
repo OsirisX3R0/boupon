@@ -3,13 +3,13 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import useLocalStorage from "../hooks/useLocalStorage";
 import Theme from "../theme";
-import { useHistory } from "react-router";
+import { useRouter } from "next/router";
 /// REACT ROUTER REFACTOR HERE
 
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  const history = useHistory();
+  const router = useRouter();
   const [key, setKey, removeKey] = useLocalStorage("boupon.key");
   const [id, setId, removeId] = useLocalStorage("boupon.id");
   const [name, setName, removeName] = useLocalStorage("boupon.name");
@@ -20,20 +20,20 @@ export const GlobalProvider = ({ children }) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   useEffect(() => {
-    switch (history.location.pathname) {
+    switch (router.pathname) {
       case "/":
-        if (key && name && id) history.push("/coupons");
+        if (key && name && id) router.push("/coupons");
         break;
       default:
-        if (!key || !name || !id) history.push("/");
+        if (!key || !name || !id) router.push("/");
     }
-  }, [history, key, name, id]);
+  }, [router, key, name, id]);
 
   const logout = () => {
     removeKey();
     removeId();
     removeName();
-    history.go(0);
+    router.reload(window.location.pathname);
   };
 
   return (
