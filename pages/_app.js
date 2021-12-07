@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import { CouponProvider } from "../src/context/CouponContext";
 import { GlobalProvider } from "../src/context/GlobalContext";
 import Header from "../src/components/core/header/Header";
@@ -6,13 +8,25 @@ import FooterNav from "../src/components/core/footer/FooterNav";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <GlobalProvider>
-      <CouponProvider>
-        <Header />
-        <Component {...pageProps} />
-        <FooterNav />
-      </CouponProvider>
-    </GlobalProvider>
+    <>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+          name="description"
+          content="Web site created using create-react-app"
+        />
+        <title>boupon</title>
+      </Head>
+      <GlobalProvider>
+        <CouponProvider>
+          <Header />
+          <Component {...pageProps} />
+          <FooterNav />
+        </CouponProvider>
+      </GlobalProvider>
+    </>
   );
 }
 
