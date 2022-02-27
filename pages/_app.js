@@ -6,7 +6,7 @@ import Header from "../src/components/core/header/Header";
 import FooterNav from "../src/components/core/footer/FooterNav";
 // import App from 'next/app'
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
       </GlobalProvider>
     </>
   );
-}
+};
 
 // Only uncomment this method if you have blocking data requirements for
 // every single page in your application. This disables the ability to
