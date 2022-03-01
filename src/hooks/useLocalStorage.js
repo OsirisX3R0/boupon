@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 
 const useLocalStorage = (storageKey, initialValue = null) => {
   if (typeof window === "undefined") {
-    return initialValue;
+    return [null, null, null];
   }
 
   const key = useRef(storageKey);
