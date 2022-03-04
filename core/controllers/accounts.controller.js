@@ -17,12 +17,12 @@ module.exports = {
     });
   },
   /**
-   * Retrieves all users tied to an account
+   * Retrieves account, including users and coupons
    * @param {String} key Account key
    * @returns
    */
-  getAccountUsers: async (key) => {
-    let { users } = await prisma.accounts.findUnique({
+  get: async (key) => {
+    return await prisma.accounts.findUnique({
       where: { key },
       select: {
         users: {
@@ -31,9 +31,15 @@ module.exports = {
             name: true,
           },
         },
+        coupons: {
+          select: {
+            title: true,
+            text: true,
+            created_by_id: true,
+            created_for_id: true,
+          },
+        },
       },
     });
-
-    return users;
   },
 };

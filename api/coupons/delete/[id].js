@@ -1,13 +1,15 @@
-const faunaAPI = require("../../../core/fauna");
+const Coupons = require("../../../core/controllers/coupons.controller");
 
 module.exports = async (req, res) => {
   try {
-    await faunaAPI.connect();
+    // await faunaAPI.connect();
     const { id } = req.query;
 
-    faunaAPI.coupons.deleteById(id).then(() => {
-      return res.json({ id });
-    });
+    let coupon = await Coupons.delete(id);
+
+    // faunaAPI.coupons.deleteById(id).then(() => {
+    return res.json(coupon);
+    // });
   } catch ({ name, message, description }) {
     return res.json({ name, message, description });
   }

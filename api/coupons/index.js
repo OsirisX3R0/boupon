@@ -1,11 +1,12 @@
-const faunaAPI = require("../../core/fauna");
+const Coupons = require("../../core/controllers/coupons.controller");
 
 module.exports = async (req, res) => {
   try {
-    await faunaAPI.connect();
-    faunaAPI.coupons.create(req.body).then(() => {
-      res.json(req.body);
-    });
+    let coupon = await Coupons.create(req.body);
+    // await faunaAPI.connect();
+    // faunaAPI.coupons.create(req.body).then(() => {
+    res.json(coupon);
+    // });
   } catch ({ name, message, description }) {
     return res.json({ name, message, description });
   }
