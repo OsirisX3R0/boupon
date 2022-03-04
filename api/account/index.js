@@ -9,19 +9,6 @@ module.exports = async (req, res) => {
     let user = await Users.create({ name, account_key: key });
 
     res.json(user);
-    // await faunaAPI.connect();
-    // let key = uuid();
-
-    // await faunaAPI.accounts.create({ key });
-
-    // faunaAPI.users
-    //   .create({ name, key })
-    //   .then(() => {
-    //     res.json({ key, name });
-    //   })
-    //   .catch(({ name, message, description }) => {
-    //     return res.json({ name, message, description });
-    //   });
   } catch ({ name, message, description }) {
     return res.json({ name, message, description });
   }
