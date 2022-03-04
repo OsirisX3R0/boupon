@@ -1,4 +1,4 @@
-const Coupons = require("../../../core/controllers/coupons.controller");
+const Coupons = require("../../../controllers/coupons.controller");
 
 module.exports = async (req, res) => {
   try {

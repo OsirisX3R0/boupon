@@ -1,4 +1,4 @@
-const Accounts = require("../../core/controllers/accounts.controller");
+const Accounts = require("../../controllers/accounts.controller");
 
 module.exports = async (req, res) => {
   try {

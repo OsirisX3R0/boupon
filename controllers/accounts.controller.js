@@ -1,6 +1,6 @@
 const { v4: uuid } = require("uuid");
 
-const prisma = require("../prisma");
+const prisma = require("../core/prisma");
 
 module.exports = {
   /** Generates a new account/key */

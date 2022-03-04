@@ -1,5 +1,5 @@
-const Accounts = require("../../core/controllers/accounts.controller");
-const Users = require("../../core/controllers/users.controller");
+const Accounts = require("../../controllers/accounts.controller");
+const Users = require("../../controllers/users.controller");
 
 module.exports = async (req, res) => {
   try {
