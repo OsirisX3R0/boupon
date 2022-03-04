@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     const { name } = req.body;
     let { key } = await Accounts.create();
 
-    let user = await Users.create(name, key);
+    let user = await Users.create({ name, account_key: key });
 
     res.json(user);
     // await faunaAPI.connect();

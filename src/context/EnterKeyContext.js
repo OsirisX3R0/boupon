@@ -32,7 +32,7 @@ export const KeyWizard = ({ close, labels, children, ...props }) => {
   };
 
   const createUser = async () => {
-    return axios.post("/api/users", { key: localKey, name: localName });
+    return axios.post("/api/users", { account_key: localKey, name: localName });
   };
 
   const steps = children.map((_, i) => <Step key={i}>{labels[i]}</Step>);

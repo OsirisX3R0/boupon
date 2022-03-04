@@ -42,7 +42,7 @@ const UserView = () => {
   }, [key]);
 
   const deleteUser = (id) => {
-    axios.delete(`/api/users/delete/${id}`).then((res) => {
+    axios.delete(`/api/users/delete/${id}`).then(() => {
       setUsers((prevUsers) => prevUsers.filter((u) => u.id !== id));
     });
   };

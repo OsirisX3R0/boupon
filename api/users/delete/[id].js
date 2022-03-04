@@ -1,13 +1,14 @@
-const faunaAPI = require("../../../core/fauna");
+const Users = require("../../../core/controllers/users.controller");
 
 module.exports = async (req, res) => {
   try {
-    await faunaAPI.connect();
+    // await faunaAPI.connect();
     const { id } = req.query;
 
-    faunaAPI.users.deleteById(id).then(() => {
-      return res.json({ id });
-    });
+    let user = await Users.delete(id);
+    // faunaAPI.users.deleteById(id).then(() => {
+    res.json(user);
+    // });
   } catch ({ name, message, description }) {
     return res.json({ name, message, description });
   }
