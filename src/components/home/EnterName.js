@@ -10,7 +10,7 @@ const EnterName = (props) => {
   const [localName, setLocalName] = useState("");
   const createAccount = () => {
     axios.post("/api/account", { name: localName }).then((res) => {
-      setKey(res.data.key);
+      setKey(res.data.account_key);
       setName(res.data.name);
     });
   };
