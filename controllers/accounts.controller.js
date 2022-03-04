@@ -24,7 +24,7 @@ module.exports = {
   get: async (key) => {
     return await prisma.accounts.findUnique({
       where: { key },
-      select: {
+      include: {
         users: {
           select: {
             id: true,

@@ -18,11 +18,33 @@ module.exports = {
     });
   },
   /**
+   * Retrieves a coupon
+   * @param {String} key Account key
+   * @returns
+   */
+  get: async (id) => {
+    return await prisma.coupons.findUnique({
+      where: { id },
+      include: {
+        created_for: {
+          select: {
+            name: true,
+          },
+        },
+        created_by: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+  },
+  /**
    * Deletes a coupon
    * @param {Number} id Coupon to delete
    */
   delete: async (id) => {
-    return prisma.coupons.delete({
+    return await prisma.coupons.delete({
       where: { id },
     });
   },

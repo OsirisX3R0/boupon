@@ -23,7 +23,7 @@ module.exports = {
   get: async (id) => {
     return prisma.users.findUnique({
       where: { id },
-      select: {
+      include: {
         created_coupons: {
           title: true,
           text: true,

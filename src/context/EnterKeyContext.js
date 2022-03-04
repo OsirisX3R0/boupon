@@ -1,24 +1,13 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
 import { Stepper, Step } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 
 import { GlobalContext } from "./GlobalContext";
 import BaseModal from "../components/core/modals/BaseModal";
 
 export const EnterKeyContext = createContext();
 
-const useStyles = makeStyles(() => ({
-  root: {
-    width: "100%",
-  },
-  stepper: {
-    display: "none",
-  },
-}));
-
 export const KeyWizard = ({ close, labels, children, ...props }) => {
-  const classes = useStyles();
   const { setKey, setName, setId } = useContext(GlobalContext);
   const [localKey, setLocalKey] = useState("");
   const [localId, setLocalId] = useState("");
@@ -40,7 +29,7 @@ export const KeyWizard = ({ close, labels, children, ...props }) => {
   const stepper =
     children && children.length ? (
       <>
-        <Stepper activeStep={active} className={classes.stepper}>
+        <Stepper activeStep={active} className={{ display: "none" }}>
           {steps}
         </Stepper>
         {children[active]}
