@@ -4,24 +4,9 @@ import { Button, Typography } from "@material-ui/core";
 import dayjs from "dayjs";
 
 import { GlobalContext } from "../../context/GlobalContext";
-import SimpleTable from "../core/table/SimpleTable";
 import DeleteButton from "../core/button/DeleteButton";
 import ShareKey from "./ShareKey";
-
-const columns = [
-  {
-    field: "name",
-    text: "Name",
-  },
-  {
-    field: "timestamp",
-    text: "Last Updated",
-  },
-  {
-    field: "delete",
-    text: "",
-  },
-];
+import { DataGrid } from "@material-ui/data-grid";
 
 const UserView = () => {
   const { key } = useContext(GlobalContext);
@@ -47,12 +32,26 @@ const UserView = () => {
     });
   };
 
-  const deleteCol = (row) => (
-    <DeleteButton color="inherit" onClick={() => deleteUser(row.id)} />
-  );
+  const columns = [
+    {
+      field: "name",
+      headerName: "Name",
+    },
+    {
+      field: "updated_at",
+      headerName: "Last Updated",
+    },
+    {
+      field: "delete",
+      headerName: "",
+      renderCell: (row) => (
+        <DeleteButton color="inherit" onClick={() => deleteUser(row.id)} />
+      ),
+    },
+  ];
 
   const table = users.length ? (
-    <SimpleTable columns={columns} rows={users} delete={deleteCol} />
+    <DataGrid columns={columns} rows={users} />
   ) : null;
 
   return (
