@@ -11,7 +11,7 @@ export const CouponProvider = ({ children }) => {
 
   useEffect(() => {
     axios.get(`/api/coupons/${id}`).then(({ data }) => {
-      setCoupons(data.coupons);
+      setCoupons(data);
     });
   }, []);
 
