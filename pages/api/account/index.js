@@ -9,8 +9,8 @@ module.exports = async (req, res) => {
     let user = await Users.create({ name, account_key: key });
 
     res.json(user);
-  } catch ({ name, message, description }) {
-    console.log(message);
-    return res.json({ name, message, description });
+  } catch (err) {
+    console.log(err.message);
+    throw err;
   }
 };

@@ -7,7 +7,8 @@ module.exports = async (req, res) => {
     let { users } = Accounts.get(key);
 
     res.json(users);
-  } catch ({ name, message, description }) {
-    return res.json({ name, message, description });
+  } catch (err) {
+    console.log(err.message);
+    throw err;
   }
 };

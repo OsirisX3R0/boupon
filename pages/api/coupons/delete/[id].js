@@ -4,10 +4,11 @@ module.exports = async (req, res) => {
   try {
     const { id } = req.query;
 
-    let coupon = await Coupons.delete(id);
+    let coupon = await Coupons.delete(+id);
 
     return res.json(coupon);
-  } catch ({ name, message, description }) {
-    return res.json({ name, message, description });
+  } catch (err) {
+    console.log(err.message);
+    throw err;
   }
 };

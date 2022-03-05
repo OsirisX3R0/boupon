@@ -5,7 +5,8 @@ module.exports = async (req, res) => {
     let user = await Users.create(req.body);
 
     res.json(user);
-  } catch ({ name, message, description }) {
-    return res.json({ name, message, description });
+  } catch (err) {
+    console.log(err.message);
+    throw err;
   }
 };
