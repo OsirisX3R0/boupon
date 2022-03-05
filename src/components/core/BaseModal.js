@@ -1,7 +1,7 @@
 import { useContext, useMemo } from "react";
 import { Modal, Typography } from "@material-ui/core";
 
-import { GlobalContext } from "../../../context/GlobalContext";
+import { GlobalContext } from "../../context/GlobalContext";
 
 const BaseModal = ({ children, title, height, ...props }) => {
   const { colorTheme, prefersDarkMode } = useContext(GlobalContext);

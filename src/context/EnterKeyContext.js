@@ -3,7 +3,7 @@ import axios from "axios";
 import { Stepper, Step } from "@material-ui/core";
 
 import { GlobalContext } from "./GlobalContext";
-import BaseModal from "../components/core/modals/BaseModal";
+import BaseModal from "../components/core/BaseModal";
 
 export const EnterKeyContext = createContext();
 

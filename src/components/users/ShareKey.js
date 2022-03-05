@@ -3,7 +3,7 @@ import { useContext } from "react";
 
 import { GlobalContext } from "../../context/GlobalContext";
 import useCopyToClipboard from "../../hooks/useCopyToClipboard";
-import BaseModal from "../core/modals/BaseModal";
+import BaseModal from "../core/BaseModal";
 import QRCode from "./QRCode";
 
 const ShareKey = (props) => {

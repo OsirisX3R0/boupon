@@ -2,8 +2,8 @@ import Head from "next/head";
 
 import { CouponProvider } from "../src/context/CouponContext";
 import { GlobalProvider } from "../src/context/GlobalContext";
-import Header from "../src/components/core/header/Header";
-import FooterNav from "../src/components/core/footer/FooterNav";
+import Header from "../src/components/core/Header";
+import FooterNav from "../src/components/core/FooterNav";
 // import App from 'next/app'
 
 const MyApp = ({ Component, pageProps }) => {

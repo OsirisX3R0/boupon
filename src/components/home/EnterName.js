@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import { Box, Button, TextField } from "@material-ui/core";
 
-import BaseModal from "../core/modals/BaseModal";
+import BaseModal from "../core/BaseModal";
 import { GlobalContext } from "../../context/GlobalContext";
 
 const EnterName = (props) => {

@@ -9,7 +9,7 @@ import {
   ExitToApp,
 } from "@material-ui/icons";
 
-import { GlobalContext } from "../../../context/GlobalContext";
+import { GlobalContext } from "../../context/GlobalContext";
 
 const FooterNav = () => {
   const router = useRouter();
