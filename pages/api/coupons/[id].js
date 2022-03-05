@@ -1,12 +1,12 @@
-const Coupons = require("../../../controllers/coupons.controller");
+const Users = require("../../../controllers/users.controller");
 
 module.exports = async (req, res) => {
   try {
     const { id } = req.query;
 
-    let coupon = await Coupons.delete(id);
+    let { coupons } = await Users.get(id);
 
-    return res.json(coupon);
+    return res.json(coupons);
   } catch ({ name, message, description }) {
     return res.json({ name, message, description });
   }

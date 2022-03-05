@@ -1,5 +1,5 @@
-const Accounts = require("../../controllers/accounts.controller");
-const Users = require("../../controllers/users.controller");
+const Accounts = require("../../../controllers/accounts.controller");
+const Users = require("../../../controllers/users.controller");
 
 module.exports = async (req, res) => {
   try {
@@ -10,6 +10,7 @@ module.exports = async (req, res) => {
 
     res.json(user);
   } catch ({ name, message, description }) {
+    console.log(message);
     return res.json({ name, message, description });
   }
 };

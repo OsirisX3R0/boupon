@@ -1,10 +1,10 @@
-const Users = require("../../controllers/users.controller");
+const Coupons = require("../../../controllers/coupons.controller");
 
 module.exports = async (req, res) => {
   try {
-    let user = await Users.create(req.body);
+    let coupon = await Coupons.create(req.body);
 
-    res.json(user);
+    res.json(coupon);
   } catch ({ name, message, description }) {
     return res.json({ name, message, description });
   }
