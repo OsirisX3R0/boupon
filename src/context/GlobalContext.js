@@ -22,10 +22,10 @@ export const GlobalProvider = ({ children }) => {
   useEffect(() => {
     switch (router.pathname) {
       case "/":
-        if (key && name && id) router.push("/coupons");
+        if (key && name) router.push("/coupons");
         break;
       default:
-        if (!key || !name || !id) router.push("/");
+        if (!key || !name) router.push("/");
     }
   }, [router, key, name, id]);
 
