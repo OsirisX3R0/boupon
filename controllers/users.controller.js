@@ -26,14 +26,18 @@ module.exports = {
       where: { id },
       include: {
         created_coupons: {
-          title: true,
-          text: true,
-          created_for: true,
+          select: {
+            title: true,
+            text: true,
+            created_for: true,
+          },
         },
         coupons: {
-          title: true,
-          text: true,
-          created_for: true,
+          select: {
+            title: true,
+            text: true,
+            created_for: true,
+          },
         },
       },
     });
