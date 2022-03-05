@@ -1,4 +1,5 @@
 import { createContext, useEffect } from "react";
+import useDarkMode from "use-dark-mode";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import useLocalStorage from "../hooks/useLocalStorage";
@@ -15,17 +16,20 @@ export const GlobalProvider = ({ children }) => {
   const [name, setName, removeName] = useLocalStorage("boupon.name");
   const [colorTheme, setColorTheme] = useLocalStorage(
     "boupon.settings.theme",
-    "default"
+    "light"
   );
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  // const { value: prefersDarkMode } = useDarkMode(colorTheme === "dark", {
+  //   storageKey: "boupon.settings.theme",
+  // });
+  // const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   useEffect(() => {
     switch (router.pathname) {
       case "/":
-        if (key && name) router.push("/coupons");
+        if (key && name && id) router.push("/coupons");
         break;
       default:
-        if (!key || !name) router.push("/");
+        if (!key || !name || !id) router.push("/");
     }
   }, [router, key, name, id]);
 
@@ -47,7 +51,7 @@ export const GlobalProvider = ({ children }) => {
         setName,
         colorTheme,
         setColorTheme,
-        prefersDarkMode,
+        // prefersDarkMode,
         logout,
       }}
     >

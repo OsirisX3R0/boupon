@@ -10,6 +10,7 @@ module.exports = {
     return prisma.users.create({
       data,
       select: {
+        id: true,
         name: true,
         account_key: true,
       },

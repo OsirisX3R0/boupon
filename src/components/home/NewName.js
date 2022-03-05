@@ -32,7 +32,7 @@ const NewName = () => {
         value={localName}
         onChange={(e) => setLocalName(e.target.value)}
       />
-      <Box mt={3}>
+      <Box sx={{ mt: 3 }}>
         <Button
           fullWidth
           color="primary"

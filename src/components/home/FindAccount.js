@@ -31,7 +31,7 @@ const FindAccount = ({ queryKey }) => {
         value={localKey || queryKey}
         onChange={(e) => setLocalKey(e.target.value)}
       />
-      <Box mt={3}>
+      <Box sx={{ mt: 3 }}>
         <Button
           color="primary"
           fullWidth

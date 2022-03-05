@@ -29,7 +29,7 @@ export const KeyWizard = ({ close, labels, children, ...props }) => {
   const stepper =
     children && children.length ? (
       <>
-        <Stepper activeStep={active} className={{ display: "none" }}>
+        <Stepper activeStep={active} sx={{ display: "none" }}>
           {steps}
         </Stepper>
         {children[active]}

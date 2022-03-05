@@ -15,7 +15,7 @@ const Manage = () => {
   }, [id]);
 
   return (
-    <Box my={3}>
+    <Box sx={{ my: 3 }}>
       <Typography variant="h3">Manage Coupons</Typography>
     </Box>
   );

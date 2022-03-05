@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <Container>
       <Typography variant="h2">Welcome!</Typography>
-      <Box mb={2}>
+      <Box sx={{ mb: 2 }}>
         <Button
           fullWidth
           variant="contained"

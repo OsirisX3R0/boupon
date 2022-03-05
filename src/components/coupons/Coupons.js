@@ -25,8 +25,8 @@ const Coupons = ({ redeemed }) => {
       : null;
 
   const noCoupons =
-    (!redeemed && coupons.every((c) => c.redeemed)) ||
-    (redeemed && coupons.every((c) => !c.redeemed)) ? (
+    (!redeemed && coupons && coupons.every((c) => c.redeemed)) ||
+    (redeemed && coupons && coupons.every((c) => !c.redeemed)) ? (
       <Typography
         sx={{
           color: "#bbb",
@@ -39,7 +39,7 @@ const Coupons = ({ redeemed }) => {
     ) : null;
 
   return (
-    <Container className={{ marginBottom: redeemed ? "72px" : "" }}>
+    <Container sx={{ marginBottom: redeemed ? "72px" : "" }}>
       {oldHead}
       {couponList}
       {noCoupons}

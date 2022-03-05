@@ -12,10 +12,12 @@ const ShareKey = (props) => {
 
   const copyText = (
     <Box
-      display="flex"
-      justifyContent="center"
-      color={copied ? "#53a318" : "#f5f5f5"}
-      mb={3}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        color: copied ? "#53a318" : "#f5f5f5",
+        mb: 3,
+      }}
     >
       {copied ? "Copied!" : "Click to copy the code below"}
     </Box>
@@ -24,33 +26,39 @@ const ShareKey = (props) => {
   return (
     <BaseModal {...props}>
       <Box
-        display="flex"
-        justifyContent="center"
-        borderBottom="1px solid #666"
-        mb={3}
-        pb={1}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          borderBottom: "1px solid #666",
+          mb: 3,
+          pb: 1,
+        }}
       >
         Scan your code
       </Box>
-      <Box display="flex" justifyContent="center" mb={3}>
+      <Box sx={{ display: "flex", justifyContent: "center", mb: 3 }}>
         <QRCode value={`${window.location.origin}?key=${key}`} />
       </Box>
       <Box
-        display="flex"
-        justifyContent="center"
-        borderTop="1px solid #666"
-        mb={3}
-        pt={1}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          borderTop: "1px solid #666",
+          mb: 3,
+          pt: 1,
+        }}
       >
         OR
       </Box>
       {copyText}
       <Box
-        border={`1px solid ${copied ? "#53a318" : "#666"}`}
-        borderRadius="5px"
-        p={1}
-        display="flex"
-        justifyContent="center"
+        sx={{
+          border: `1px solid ${copied ? "#53a318" : "#666"}`,
+          borderRadius: "5px",
+          p: 1,
+          display: "flex",
+          justifyContent: "center",
+        }}
         onClick={() => copy()}
       >
         {key}

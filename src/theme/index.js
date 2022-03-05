@@ -6,7 +6,7 @@ import { useContext, useMemo } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 
 const Theme = ({ children }) => {
-  const { colorTheme, prefersDarkMode } = useContext(GlobalContext);
+  const { colorTheme } = useContext(GlobalContext);
 
   const theme = useMemo(
     () =>
@@ -14,9 +14,9 @@ const Theme = ({ children }) => {
         spacing: 8,
         palette: {
           type:
-            colorTheme === "dark" ||
-            (colorTheme === "default" && prefersDarkMode)
-              ? "dark"
+            colorTheme === "dark" //||
+              ? // (colorTheme === "default" && prefersDarkMode)
+                "dark"
               : "light",
           primary: {
             main: "#53a318",
@@ -82,7 +82,7 @@ const Theme = ({ children }) => {
           },
         },
       }),
-    [colorTheme, prefersDarkMode]
+    [colorTheme]
   );
   return (
     <ThemeProvider theme={theme}>

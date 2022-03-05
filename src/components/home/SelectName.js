@@ -50,7 +50,7 @@ const SelectName = () => {
         value={localId}
         onChange={selectUser}
       />
-      <Box mt={3}>
+      <Box sx={{ mt: 3 }}>
         <Button
           fullWidth
           color="primary"
@@ -60,7 +60,7 @@ const SelectName = () => {
           Select User
         </Button>
       </Box>
-      <Box mt={3}>
+      <Box sx={{ mt: 3 }}>
         <Button
           fullWidth
           color="primary"

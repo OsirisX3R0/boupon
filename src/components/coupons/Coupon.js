@@ -11,7 +11,8 @@ import { CouponContext } from "../../context/CouponContext";
 
 const Coupon = ({ coupon, redeemed, last }) => {
   const { redeem } = useContext(CouponContext);
-  const couponClass = useMemo(
+
+  const couponStyles = useMemo(
     () => ({
       border: redeemed ? "2px dashed #666" : "3px dashed #297AA3",
       ...(redeemed ? { color: "#666" } : {}),
@@ -29,13 +30,9 @@ const Coupon = ({ coupon, redeemed, last }) => {
   );
 
   return (
-    <Card
-      // className={redeemed ? classes.redeemed : classes.root}
-      className={couponClass}
-      variant="outlined"
-    >
+    <Card sx={couponStyles} variant="outlined">
       <CardContent>
-        <Typography className={{ textAlign: "left" }} variant="h4">
+        <Typography sx={{ textAlign: "left" }} variant="h4">
           {coupon.title}
         </Typography>
         <Typography variant="body2">{coupon.text}</Typography>
