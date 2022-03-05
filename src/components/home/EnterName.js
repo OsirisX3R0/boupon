@@ -9,9 +9,11 @@ const EnterName = (props) => {
   const { setKey, setName } = useContext(GlobalContext);
   const [localName, setLocalName] = useState("");
   const createAccount = () => {
-    axios.post("/api/account", { name: localName }).then((res) => {
-      setKey(res.data.account_key);
-      setName(res.data.name);
+    axios.post("/api/account", { name: localName }).then(({ data }) => {
+      if (data.account_key && data.name) {
+        setKey(data.account_key);
+        setName(data.name);
+      }
     });
   };
 
@@ -19,7 +21,7 @@ const EnterName = (props) => {
     <BaseModal title="Tell us your name" {...props}>
       <Box mt={2}>
         <TextField
-          label="Enter Key"
+          label="Enter Name"
           fullWidth
           variant="outlined"
           value={localName}
