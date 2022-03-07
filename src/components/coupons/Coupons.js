@@ -12,11 +12,20 @@ const Coupons = ({ redeemed }) => {
 
   const couponList =
     coupons && coupons.length
-      ? coupons
-          .filter((c) => (redeemed ? c.redeemed : !c.redeemed))
-          .map((coupon, i) => (
-            <Coupon coupon={coupon} key={coupon.id} redeemed={redeemed} />
-          ))
+      ? coupons.reduce(
+          (list, coupon) =>
+            (redeemed && coupon.redeemed) || (!redeemed && !coupon.redeemed)
+              ? [
+                  ...list,
+                  <Coupon
+                    coupon={coupon}
+                    key={coupon.id}
+                    redeemed={redeemed}
+                  />,
+                ]
+              : list,
+          []
+        )
       : null;
 
   const noCoupons =
