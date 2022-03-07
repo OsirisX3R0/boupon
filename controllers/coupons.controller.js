@@ -26,16 +26,8 @@ module.exports = {
     return await prisma.coupons.findUnique({
       where: { id },
       include: {
-        created_for: {
-          select: {
-            name: true,
-          },
-        },
-        created_by: {
-          select: {
-            name: true,
-          },
-        },
+        created_for: true,
+        created_by: true,
       },
     });
   },

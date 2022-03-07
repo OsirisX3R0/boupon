@@ -25,20 +25,8 @@ module.exports = {
     return prisma.users.findUnique({
       where: { id },
       include: {
-        created_coupons: {
-          select: {
-            title: true,
-            text: true,
-            created_for: true,
-          },
-        },
-        coupons: {
-          select: {
-            title: true,
-            text: true,
-            created_for: true,
-          },
-        },
+        created_coupons: true,
+        coupons: true,
       },
     });
   },

@@ -25,20 +25,8 @@ module.exports = {
     return await prisma.accounts.findUnique({
       where: { key },
       include: {
-        users: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        coupons: {
-          select: {
-            title: true,
-            text: true,
-            created_by_id: true,
-            created_for_id: true,
-          },
-        },
+        users: true,
+        coupons: true,
       },
     });
   },
