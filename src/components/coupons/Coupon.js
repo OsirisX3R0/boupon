@@ -9,16 +9,16 @@ import { useContext, useMemo } from "react";
 
 import { CouponContext } from "../../context/CouponContext";
 
-const Coupon = ({ coupon, redeemed, last }) => {
+const Coupon = ({ coupon, redeemed }) => {
   const { redeem } = useContext(CouponContext);
 
   const couponStyles = useMemo(
     () => ({
       border: redeemed ? "2px dashed #666" : "3px dashed #297AA3",
       ...(redeemed ? { color: "#666" } : {}),
-      marginBottom: last ? "0" : "1rem",
+      marginTop: "1rem",
     }),
-    [redeemed, last]
+    [redeemed]
   );
 
   const actions = redeemed ? null : (
