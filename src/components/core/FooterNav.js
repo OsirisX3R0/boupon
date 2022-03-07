@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import { useRouter } from "next/router";
-/// REACT ROUTER REFACTOR HERE
 import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
 import {
   ReceiptOutlined,
