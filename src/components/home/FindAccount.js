@@ -28,7 +28,7 @@ const FindAccount = ({ queryKey }) => {
         centered={"true"}
         variant="outlined"
         fullWidth
-        value={localKey || queryKey}
+        value={localKey || queryKey || ""}
         onChange={(e) => setLocalKey(e.target.value)}
       />
       <Box sx={{ mt: 3 }}>

@@ -10,9 +10,11 @@ export const CouponProvider = ({ children }) => {
   const [coupons, setCoupons] = useState([]);
 
   useEffect(() => {
-    axios.get(`/api/coupons/${id}`).then(({ data }) => {
-      setCoupons(data);
-    });
+    if (id) {
+      axios.get(`/api/coupons/${id}`).then(({ data }) => {
+        setCoupons(data);
+      });
+    }
   }, []);
 
   const redeem = async (id) => {

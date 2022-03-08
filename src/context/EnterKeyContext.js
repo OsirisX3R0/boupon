@@ -16,11 +16,11 @@ export const KeyWizard = ({ close, labels, children, ...props }) => {
   const [someoneElse, setSomeoneElse] = useState(false);
   const [active, setActive] = useState(0);
 
-  const getUsers = async () => {
+  const getUsers = () => {
     return axios.get(`/api/users/${localKey}`);
   };
 
-  const createUser = async () => {
+  const createUser = () => {
     return axios.post("/api/users", { account_key: localKey, name: localName });
   };
 
