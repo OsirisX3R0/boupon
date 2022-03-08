@@ -1,5 +1,10 @@
 import Head from "next/head";
+import { createTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { useMemo } from "react";
 
+import useLocalStorage from "../src/hooks/useLocalStorage";
 import { CouponProvider } from "../src/context/CouponContext";
 import { GlobalProvider } from "../src/context/GlobalContext";
 import Header from "../src/components/core/Header";
@@ -7,6 +12,88 @@ import FooterNav from "../src/components/core/FooterNav";
 // import App from 'next/app'
 
 const MyApp = ({ Component, pageProps }) => {
+  const [colorTheme, setColorTheme] = useLocalStorage(
+    "boupon.settings.theme",
+    "light"
+  );
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        spacing: 8,
+        palette: {
+          type:
+            colorTheme === "dark" //||
+              ? // (colorTheme === "default" && prefersDarkMode)
+                "dark"
+              : "light",
+          primary: {
+            main: "#53a318",
+          },
+          secondary: {
+            main: "#297AA3",
+          },
+          light: {
+            main: "#eee",
+          },
+          dark: {
+            main: "#333",
+          },
+        },
+        typography: {
+          fontFamily: ["Montserrat"].join(","),
+          h1: {
+            color: "#eee",
+            textTransform: "uppercase",
+            fontSize: "2.5rem",
+            fontWeight: 600,
+            textAlign: "center",
+            margin: "1rem 0",
+          },
+          h2: {
+            fontSize: "2rem",
+            fontWeight: 400,
+            textAlign: "center",
+            margin: "2rem 0",
+          },
+          h3: {
+            fontSize: "1.5rem",
+            fontWeight: 500,
+            textAlign: "center",
+            margin: ".5rem 0",
+          },
+          h4: {
+            fontSize: "1.25rem",
+            fontWeight: 500,
+            textAlign: "center",
+            margin: ".5rem 0",
+          },
+          h5: {
+            fontSize: "1.15rem",
+            fontWeight: 500,
+            textAlign: "center",
+            margin: ".5rem 0",
+          },
+        },
+        overrides: {
+          MuiBottomNavigation: {
+            root: {
+              width: "100%",
+              position: "fixed",
+              bottom: 0,
+            },
+          },
+          MuiInputBase: {
+            input: {
+              fontSize: ".8rem",
+              textAlign: "center",
+            },
+          },
+        },
+      }),
+    [colorTheme]
+  );
+
   return (
     <>
       <Head>
@@ -19,13 +106,16 @@ const MyApp = ({ Component, pageProps }) => {
         />
         <title>boupon</title>
       </Head>
-      <GlobalProvider>
-        <CouponProvider>
-          <Header />
-          <Component {...pageProps} />
-          <FooterNav />
-        </CouponProvider>
-      </GlobalProvider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <GlobalProvider colorTheme={colorTheme} setColorTheme={setColorTheme}>
+          <CouponProvider>
+            <Header />
+            <Component {...pageProps} />
+            <FooterNav />
+          </CouponProvider>
+        </GlobalProvider>
+      </ThemeProvider>
     </>
   );
 };

@@ -2,19 +2,14 @@ import { createContext, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import useLocalStorage from "../hooks/useLocalStorage";
-import Theme from "../theme";
 
 export const GlobalContext = createContext();
 
-export const GlobalProvider = ({ children }) => {
+export const GlobalProvider = ({ colorTheme, setColorTheme, children }) => {
   const router = useRouter();
   const [key, setKey, removeKey] = useLocalStorage("boupon.key");
   const [id, setId, removeId] = useLocalStorage("boupon.id");
   const [name, setName, removeName] = useLocalStorage("boupon.name");
-  const [colorTheme, setColorTheme] = useLocalStorage(
-    "boupon.settings.theme",
-    "light"
-  );
 
   useEffect(() => {
     switch (router.pathname) {
@@ -47,7 +42,7 @@ export const GlobalProvider = ({ children }) => {
         logout,
       }}
     >
-      <Theme>{children}</Theme>
+      {children}
     </GlobalContext.Provider>
   );
 };
