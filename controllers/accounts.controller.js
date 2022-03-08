@@ -26,7 +26,6 @@ module.exports = {
       where: { key },
       include: {
         users: true,
-        coupons: true,
       },
     });
   },

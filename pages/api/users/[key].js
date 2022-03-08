@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
   try {
     const { key } = req.query;
 
-    let { users } = Accounts.get(key);
+    let { users } = await Accounts.get(key);
 
     res.json(users);
   } catch (err) {
